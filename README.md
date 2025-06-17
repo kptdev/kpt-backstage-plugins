@@ -1,5 +1,9 @@
 # Kpt Backstage Plugins
 
+> This repository was forked into [The Nephio Project](https://github.com/nephio-project/kpt-backstage-plugins/)
+> on May 10, 2023. Since the plugins are primarily related to Porch interactions, which
+> has also moved to the Nephio project, this repository will be archived in the kptdev project.
+
 Welcome! This repository contains the Kpt Backstage Plugins. The plugins can be
 installed into an existing Backstage Application following the READMEs for each
 plugin. For development and testing, the plugins can also be executed with the
