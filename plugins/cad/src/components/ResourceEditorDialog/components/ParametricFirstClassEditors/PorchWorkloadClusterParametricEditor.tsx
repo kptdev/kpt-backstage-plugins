@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 The Nephio Authors.
+ * Copyright 2024 The kpt Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,23 +18,21 @@ import { createEditorFromConfiguration } from '../PxeParametricEditor/createEdit
 import { PxeConfigurationFactory } from '../PxeParametricEditor/configuration';
 import { metadataEditorTab } from './partial/metadataEditorSection';
 
-const { singleLineText, naturalNumberText } = PxeConfigurationFactory;
+const { arrayTypeRoster, singleLineText } = PxeConfigurationFactory;
 
-export const NephioCapacityParametricEditor = createEditorFromConfiguration({
+export const PorchWorkloadClusterParametricEditor = createEditorFromConfiguration({
   topLevelProperties: ['metadata', 'spec'],
   tabs: [
     metadataEditorTab({ isNamespacedResource: true }),
     {
-      name: 'Capacity',
+      name: 'Workload cluster',
       entries: [
-        singleLineText({ path: 'spec.maxUplinkThroughput' }),
-        singleLineText({ path: 'spec.maxDownlinkThroughput' }),
-        naturalNumberText({
-          path: 'spec.maxNFConnections',
-          name: 'max NF connections',
-        }),
-        naturalNumberText({ path: 'spec.maxSessions' }),
-        naturalNumberText({ path: 'spec.maxSubscribers' }),
+        singleLineText({ path: 'spec.clusterName', isRequired: true }),
+        singleLineText({ path: 'spec.masterInterface' }),
+        arrayTypeRoster(
+          { name: 'CNIs', path: 'spec.cnis', isRequired: false },
+          singleLineText({ path: '$value', isRequired: true }),
+        ),
       ],
     },
   ],

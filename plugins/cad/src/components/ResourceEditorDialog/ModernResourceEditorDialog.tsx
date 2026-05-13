@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 The Nephio Authors.
+ * Copyright 2024 The kpt Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,18 +23,18 @@ import { YamlViewer } from '../Controls';
 import { getGroupVersionKind } from '../../utils/kubernetesResource';
 import { KubernetesResource } from '../../types/KubernetesResource';
 import { PxeConfiguredEditorProps } from './components/PxeParametricEditor/createEditorFromConfiguration';
-import { NephioTokenParametricEditor } from './components/ParametricFirstClassEditors/NephioTokenParametricEditor';
-import { NephioNetworkParametricEditor } from './components/ParametricFirstClassEditors/NephioNetworkParametricEditor';
-import { NephioWorkloadClusterParametricEditor } from './components/ParametricFirstClassEditors/NephioWorkloadClusterParametricEditor';
-import { NephioCapacityParametricEditor } from './components/ParametricFirstClassEditors/NephioCapacityParametricEditor';
+import { PorchTokenParametricEditor } from './components/ParametricFirstClassEditors/PorchTokenParametricEditor';
+import { PorchNetworkParametricEditor } from './components/ParametricFirstClassEditors/PorchNetworkParametricEditor';
+import { PorchWorkloadClusterParametricEditor } from './components/ParametricFirstClassEditors/PorchWorkloadClusterParametricEditor';
+import { PorchCapacityParametricEditor } from './components/ParametricFirstClassEditors/PorchCapacityParametricEditor';
 
 type EditorViewMode = 'gui' | 'yaml';
 
 const EDITOR_COMPONENT_BY_GVK: Record<string, React.FC<PxeConfiguredEditorProps>> = {
-  'infra.nephio.org/v1alpha1/Token': NephioTokenParametricEditor,
-  'infra.nephio.org/v1alpha1/Network': NephioNetworkParametricEditor,
-  'infra.nephio.org/v1alpha1/WorkloadCluster': NephioWorkloadClusterParametricEditor,
-  'req.nephio.org/v1alpha1/Capacity': NephioCapacityParametricEditor,
+  'infra.kpt.dev/v1alpha1/Token': PorchTokenParametricEditor,
+  'infra.kpt.dev/v1alpha1/Network': PorchNetworkParametricEditor,
+  'infra.kpt.dev/v1alpha1/WorkloadCluster': PorchWorkloadClusterParametricEditor,
+  'req.kpt.dev/v1alpha1/Capacity': PorchCapacityParametricEditor,
 };
 
 export const ModernResourceEditorDialog = ({

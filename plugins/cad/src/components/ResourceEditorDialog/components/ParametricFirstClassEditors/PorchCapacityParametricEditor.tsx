@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 The Nephio Authors.
+ * Copyright 2024 The kpt Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,32 +14,27 @@
  * limitations under the License.
  */
 
-import { PxeValueType } from '../PxeParametricEditor/types/PxeConfiguration.types';
 import { createEditorFromConfiguration } from '../PxeParametricEditor/createEditorFromConfiguration';
 import { PxeConfigurationFactory } from '../PxeParametricEditor/configuration';
 import { metadataEditorTab } from './partial/metadataEditorSection';
 
-const { selectValue } = PxeConfigurationFactory;
+const { singleLineText, naturalNumberText } = PxeConfigurationFactory;
 
-const DELETION_POLICY_OPTIONS = [
-  { value: undefined, label: 'Default' },
-  { value: 'delete', label: 'Delete' },
-  { value: 'orphan', label: 'Orphan' },
-];
-
-export const NephioTokenParametricEditor = createEditorFromConfiguration({
+export const PorchCapacityParametricEditor = createEditorFromConfiguration({
   topLevelProperties: ['metadata', 'spec'],
   tabs: [
     metadataEditorTab({ isNamespacedResource: true }),
     {
-      name: 'Token',
+      name: 'Capacity',
       entries: [
-        selectValue({
-          path: 'spec.lifecycle.deletionPolicy',
-          type: PxeValueType.String,
-          isRequired: false,
-          options: DELETION_POLICY_OPTIONS,
+        singleLineText({ path: 'spec.maxUplinkThroughput' }),
+        singleLineText({ path: 'spec.maxDownlinkThroughput' }),
+        naturalNumberText({
+          path: 'spec.maxNFConnections',
+          name: 'max NF connections',
         }),
+        naturalNumberText({ path: 'spec.maxSessions' }),
+        naturalNumberText({ path: 'spec.maxSubscribers' }),
       ],
     },
   ],

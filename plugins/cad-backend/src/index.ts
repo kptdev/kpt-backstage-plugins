@@ -14,4 +14,5 @@
  * limitations under the License.
  */
 
-export * from './service/router';
+export { cadPlugin as default } from './plugin';
+export { createRouter } from './service/router';

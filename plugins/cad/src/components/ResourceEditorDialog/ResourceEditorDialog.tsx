@@ -33,10 +33,10 @@ export type ResourceEditorDialogProps = {
 };
 
 const MODERN_EDITOR_RESOURCES = [
-  'infra.nephio.org/v1alpha1/Token',
-  'infra.nephio.org/v1alpha1/Network',
-  'infra.nephio.org/v1alpha1/WorkloadCluster',
-  'req.nephio.org/v1alpha1/Capacity',
+  'infra.kpt.dev/v1alpha1/Token',
+  'infra.kpt.dev/v1alpha1/Network',
+  'infra.kpt.dev/v1alpha1/WorkloadCluster',
+  'req.kpt.dev/v1alpha1/Capacity',
 ];
 
 export const ResourceEditorDialog: React.FC<ResourceEditorDialogProps> = props => {
