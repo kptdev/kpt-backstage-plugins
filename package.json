@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "@types/react": "^17",
-    "@types/react-dom": "^17"
+    "@types/react-dom": "^17",
+    "better-sqlite3": "^12.10.0"
   }
 }

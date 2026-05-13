@@ -38,7 +38,7 @@ const useStyles = makeStyles({
 export const AdvancedRepositoryOptions = ({ repositorySummary }: AdvancedRepositoryOptionsProps) => {
   const classes = useStyles();
 
-  const { repositoryName } = useParams();
+  const { repositoryName } = useParams() as Record<string, string>;
   const api = useApi(configAsDataApiRef);
 
   const packageManagementRef = useRouteRef(rootRouteRef);

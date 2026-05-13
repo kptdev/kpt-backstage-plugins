@@ -8,7 +8,7 @@
     "role": "backend"
   },
   "scripts": {
-    "start": "backstage-cli package start",
+    "start": "NODE_OPTIONS='--require ./polyfill.js' backstage-cli package start",
     "build": "backstage-cli package build",
     "lint": "backstage-cli package lint",
     "test": "backstage-cli package test",
@@ -21,7 +21,8 @@
     "@backstage/plugin-auth-backend": "^0.22.5",
     "@backstage/plugin-catalog-backend": "^1.22.0",
     "@backstage/plugin-proxy-backend": "^0.4.16",
-    "@kpt/backstage-plugin-cad-backend": "*"
+    "@kpt/backstage-plugin-cad-backend": "*",
+    "better-sqlite3": "^12.10.0"
   },
   "devDependencies": {
     "@backstage/cli": "^0.26.6"

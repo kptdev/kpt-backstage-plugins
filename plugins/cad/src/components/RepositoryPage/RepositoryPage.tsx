@@ -44,7 +44,7 @@ import { AdvancedRepositoryOptions } from './components/AdvancedRepositoryOption
 import { PackagesTabContent } from './components/PackagesTabContent';
 
 export const RepositoryPage = () => {
-  const { repositoryName } = useParams();
+  const { repositoryName } = useParams() as Record<string, string>;
   const api = useApi(configAsDataApiRef);
 
   const addPackageRef = useRouteRef(addPackageToRepoRouteRef);

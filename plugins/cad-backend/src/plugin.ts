@@ -41,6 +41,10 @@ export const cadPlugin = createBackendPlugin({
             logger,
           }),
         );
+        httpRouter.addAuthPolicy({
+          path: '/',
+          allow: 'unauthenticated',
+        });
       },
     });
   },

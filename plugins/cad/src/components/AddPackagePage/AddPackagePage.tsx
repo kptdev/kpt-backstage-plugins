@@ -152,7 +152,7 @@ export const AddPackagePage = ({ action }: AddPackagePageProps) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
-  const { repositoryName, packageName, packageContent } = useParams();
+  const { repositoryName, packageName, packageContent } = useParams() as Record<string, string>;
 
   const isAddPackageAction = action === AddPackagePageAction.ADD;
   const isCloneNamedPackageAction = !isAddPackageAction;
