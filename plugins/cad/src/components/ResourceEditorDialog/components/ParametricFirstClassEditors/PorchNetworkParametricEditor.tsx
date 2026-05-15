@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 The Nephio Authors.
+ * Copyright 2024 The kpt Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ const INTERFACE_ATTACHMENT_TYPE_OPTIONS = [
   { value: 'vlan', label: 'VLAN' },
 ];
 
-export const NephioNetworkParametricEditor = createEditorFromConfiguration({
+export const PorchNetworkParametricEditor = createEditorFromConfiguration({
   topLevelProperties: ['metadata', 'spec'],
   tabs: [
     metadataEditorTab({ isNamespacedResource: true }),

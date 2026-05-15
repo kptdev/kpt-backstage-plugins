@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 The Nephio Authors.
+ * Copyright 2024 The kpt Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,32 @@
  * limitations under the License.
  */
 
+import { PxeValueType } from '../PxeParametricEditor/types/PxeConfiguration.types';
 import { createEditorFromConfiguration } from '../PxeParametricEditor/createEditorFromConfiguration';
 import { PxeConfigurationFactory } from '../PxeParametricEditor/configuration';
 import { metadataEditorTab } from './partial/metadataEditorSection';
 
-const { arrayTypeRoster, singleLineText } = PxeConfigurationFactory;
+const { selectValue } = PxeConfigurationFactory;
 
-export const NephioWorkloadClusterParametricEditor = createEditorFromConfiguration({
+const DELETION_POLICY_OPTIONS = [
+  { value: undefined, label: 'Default' },
+  { value: 'delete', label: 'Delete' },
+  { value: 'orphan', label: 'Orphan' },
+];
+
+export const PorchTokenParametricEditor = createEditorFromConfiguration({
   topLevelProperties: ['metadata', 'spec'],
   tabs: [
     metadataEditorTab({ isNamespacedResource: true }),
     {
-      name: 'Workload cluster',
+      name: 'Token',
       entries: [
-        singleLineText({ path: 'spec.clusterName', isRequired: true }),
-        singleLineText({ path: 'spec.masterInterface' }),
-        arrayTypeRoster(
-          { name: 'CNIs', path: 'spec.cnis', isRequired: false },
-          singleLineText({ path: '$value', isRequired: true }),
-        ),
+        selectValue({
+          path: 'spec.lifecycle.deletionPolicy',
+          type: PxeValueType.String,
+          isRequired: false,
+          options: DELETION_POLICY_OPTIONS,
+        }),
       ],
     },
   ],

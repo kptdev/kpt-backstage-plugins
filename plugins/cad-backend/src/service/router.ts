@@ -16,10 +16,10 @@
 
 import { errorHandler } from '@backstage/backend-common';
 import { Config } from '@backstage/config';
+import { LoggerService } from '@backstage/backend-plugin-api';
 import express from 'express';
 import Router from 'express-promise-router';
 import requestLibrary from 'request';
-import { Logger } from 'winston';
 import {
   ClusterLocatorAuthProvider,
   getClusterLocatorMethodAuthProvider,
@@ -35,7 +35,7 @@ import { getKubernetesConfig } from './lib';
 
 export interface RouterOptions {
   config: Config;
-  logger: Logger;
+  logger: LoggerService;
 }
 
 const getClientAuthentication = (

@@ -1,20 +1,13 @@
 # Kpt Backstage Plugins
 
-**NOTICE** This is a fork of the upstream Kpt Backstage Plugin repository. The
-intention is to upstream relevant changes to that repository after kpt moves to
-CNCF and has the CNCF CLA. Please keep changes that are Nephio-specific (i.e.,
-do not belong in the upstream project) easily separable (or do them in a
-different repository).
-
 Welcome! This repository contains the Kpt Backstage Plugins. The plugins can be
 installed into an existing Backstage Application following the READMEs for each
 plugin. For development and testing, the plugins can also be executed with the
 example Backstage Application in this repository.
 
 [Configuration as Data](plugins/cad) is the primary plugin which powers the
-WYSIWYG Configuration GUI over GitOps using [kpt](https://kpt.dev/) and its new
-Package Orchestrator,
-[Porch](https://github.com/GoogleContainerTools/kpt/tree/main/porch).
+WYSIWYG Configuration GUI over GitOps using [kpt](https://kpt.dev/) and its
+Package Orchestrator, [Porch](https://github.com/kptdev//porch).
 
 ![CaD Landing Page](images/cad-plugin-landing.png)
 
@@ -68,9 +61,9 @@ yarn install
 ### Running the UI
 
 To run the UI, you'll need to use this command will start Backstage frontend and
-backend instances. The frontend instance is hosted on port 3000 and, the backend
+backend instances. The frontend instance is hosted on port 3900 and, the backend
 instance is on port 7007. Once started, you'll be able to access the UI by
-browsing to the URL http://localhost:3000.
+browsing to the URL http://localhost:3900.
 
 ```bash
 yarn dev

@@ -26,7 +26,7 @@ spec:
   git:
     branch: main
     directory: /
-    repo: https://github.com/GoogleContainerTools/kpt-samples.git
+    repo: https://github.com/kptdev/kpt-samples.git
   type: git
 ---
 apiVersion: config.porch.kpt.dev/v1alpha1

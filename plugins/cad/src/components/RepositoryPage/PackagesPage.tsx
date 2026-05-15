@@ -33,7 +33,7 @@ import { LandingPageLink } from '../Links';
 import { PackagesTabContent } from './components/PackagesTabContent';
 
 export const PackagesPage = () => {
-  const { packageContent } = useParams();
+  const { packageContent } = useParams() as Record<string, string>;
   const api = useApi(configAsDataApiRef);
 
   const addPackageRef = useRouteRef(addPackageRouteRef);

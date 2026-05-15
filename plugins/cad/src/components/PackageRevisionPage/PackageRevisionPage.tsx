@@ -186,7 +186,7 @@ const getUpgradeAvailableMessage = (
 };
 
 export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
-  const { repositoryName, packageName } = useParams();
+  const { repositoryName, packageName } = useParams() as Record<string, string>;
   const classes = useStyles();
   const navigate = useNavigate();
   const api = useApi(configAsDataApiRef);

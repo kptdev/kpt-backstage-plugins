@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 The Nephio Authors.
+ * Copyright 2024 The kpt Authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,21 +15,21 @@
  */
 import { KubernetesKeyValueObject } from './KubernetesResource';
 
-export type NephioToken = {
+export type PorchToken = {
   readonly apiVersion: string;
   readonly kind: string;
-  readonly metadata: NephioTokenMetadata;
-  readonly spec: NephioTokenSpec;
+  readonly metadata: PorchTokenMetadata;
+  readonly spec: PorchTokenSpec;
 };
 
-export type NephioTokenMetadata = {
+export type PorchTokenMetadata = {
   readonly name: string;
   readonly namespace?: string;
   readonly labels?: KubernetesKeyValueObject;
   readonly annotations?: KubernetesKeyValueObject;
 };
 
-export type NephioTokenSpec = {
+export type PorchTokenSpec = {
   readonly lifecycle?: {
     readonly deletionPolicy?: string;
   };

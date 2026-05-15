@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@backstage/backend-common": "^0.22.0",
+    "@backstage/backend-plugin-api": "^0.6.18",
     "@backstage/config": "^1.2.0",
     "@kubernetes/client-node": "^0.20.0",
     "@types/express": "*",
@@ -35,7 +36,6 @@
     "express-promise-router": "^4.1.0",
     "node-fetch": "^2.6.7",
     "request": "^2.88.2",
-    "winston": "^3.2.1",
     "yn": "^4.0.0"
   },
   "devDependencies": {
