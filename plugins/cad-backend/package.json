@@ -36,7 +36,7 @@
     "express-promise-router": "^4.1.0",
     "node-fetch": "^3.3.2",
     "request": "^2.88.2",
-    "yn": "^4.0.0"
+    "yn": "^5.1.0"
   },
   "devDependencies": {
     "@backstage/cli": "^0.26.6",
