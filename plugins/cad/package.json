@@ -35,7 +35,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "4.0.0-alpha.57",
     "@monaco-editor/loader": "1.7.0",
-    "@monaco-editor/react": "4.4.2",
+    "@monaco-editor/react": "4.7.0",
     "change-case": "^5.4.4",
     "diff": "^9.0.0",
     "js-yaml": "^4.0.0",
