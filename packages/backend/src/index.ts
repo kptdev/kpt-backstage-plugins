@@ -15,13 +15,15 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
+import appPlugin from '@backstage/plugin-app-backend';
+import proxyPlugin from '@backstage/plugin-proxy-backend/alpha';
 
 const backend = createBackend();
 
-backend.add(import('@backstage/plugin-app-backend/alpha'));
+backend.add(appPlugin);
 backend.add(import('@backstage/plugin-auth-backend'));
-backend.add(import('@backstage/plugin-catalog-backend/alpha'));
-backend.add(import('@backstage/plugin-proxy-backend/alpha'));
+backend.add(import('@backstage/plugin-catalog-backend'));
+backend.add(proxyPlugin());
 backend.add(import('@kpt/backstage-plugin-cad-backend'));
 
 backend.start();

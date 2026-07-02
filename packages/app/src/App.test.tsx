@@ -16,6 +16,13 @@
 
 import React from 'react';
 import { renderWithEffects } from '@backstage/test-utils';
+
+jest.mock('@backstage/plugin-user-settings', () => ({
+  UserSettingsPage: () => <div>Settings Page</div>,
+  Settings: () => <div>Settings</div>,
+  UserSettingsSignInAvatar: () => <div>User Avatar</div>,
+}));
+
 import App from './App';
 
 describe('App', () => {
