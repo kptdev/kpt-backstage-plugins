@@ -22,7 +22,7 @@ const backend = createBackend();
 
 backend.add(appPlugin());
 backend.add(import('@backstage/plugin-auth-backend'));
-backend.add(import('@backstage/plugin-catalog-backend/alpha'));
+backend.add(import('@backstage/plugin-catalog-backend'));
 backend.add(proxyPlugin());
 backend.add(import('@kpt/backstage-plugin-cad-backend'));
 
