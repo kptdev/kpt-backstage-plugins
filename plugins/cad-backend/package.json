@@ -30,7 +30,7 @@
     "@backstage/backend-common": "^0.25.0",
     "@backstage/backend-plugin-api": "^0.6.18",
     "@backstage/config": "^1.2.0",
-    "@kubernetes/client-node": "^0.20.0",
+    "@kubernetes/client-node": "^1.4.0",
     "@types/express": "*",
     "express": "^4.17.1",
     "express-promise-router": "^4.1.0",
