@@ -43,7 +43,7 @@
     "@types/react-dom": "^17",
     "@backstage/backend-common/@kubernetes/client-node": "^0.22.3",
     "@kubernetes/client-node": "^0.22.3",
-    "@backstage/core-components": "^0.18.11"
+    "@backstage/core-components": "^0.18.11",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0"
   },
