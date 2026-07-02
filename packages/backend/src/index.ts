@@ -15,12 +15,12 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
-import appPlugin from '@backstage/plugin-app-backend/alpha';
+import appPlugin from '@backstage/plugin-app-backend';
 import proxyPlugin from '@backstage/plugin-proxy-backend/alpha';
 
 const backend = createBackend();
 
-backend.add(appPlugin());
+backend.add(appPlugin);
 backend.add(import('@backstage/plugin-auth-backend'));
 backend.add(import('@backstage/plugin-catalog-backend'));
 backend.add(proxyPlugin());
