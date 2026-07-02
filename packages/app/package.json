@@ -16,7 +16,7 @@
     "@backstage/plugin-catalog": "^1.20.0",
     "@backstage/plugin-permission-react": "^0.5.1",
     "@backstage/plugin-user-settings": "^0.8.6",
-    "@backstage/theme": "^0.5.5",
+    "@backstage/theme": "^0.7.3",
     "@kpt/backstage-plugin-cad": "*",
     "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.9.1",
