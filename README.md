@@ -10,6 +10,7 @@ WYSIWYG Configuration GUI over GitOps using [kpt](https://kpt.dev/) and its
 Package Orchestrator, [Porch](https://github.com/kptdev//porch).
 
 ![CaD Landing Page](images/cad-plugin-landing.png)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkptdev%2Fkpt-backstage-plugins.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkptdev%2Fkpt-backstage-plugins?ref=badge_shield)
 
 _New to kpt?_
 
@@ -98,3 +99,7 @@ yarn prettier:write # Formats code
 
 If you are interested in contributing, please start with the
 [contribution guidelines](CONTRIBUTING.md).
+
+## License
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkptdev%2Fkpt-backstage-plugins.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkptdev%2Fkpt-backstage-plugins?ref=badge_large)
