@@ -59,7 +59,7 @@
       "@testing-library/jest-dom"
     ],
     "moduleNameMapper": {
-      "monaco-editor": "<rootDir>/../../../node_modules/monaco-editor/monaco.d.ts"
+      "^monaco-editor$": "<rootDir>/../../../__mocks__/monaco-editor.ts"
     }
   },
   "dependencies": {
