@@ -214,7 +214,7 @@ export const PackageRevisionResourcesTable = ({
             position: 'absolute',
             transform: 'translateY(-50%)',
           }}
-          onClick={e => {
+          onClick={(e: { stopPropagation: () => void; }) => {
             e.stopPropagation();
             openResourceDialog(Dialog.DIFF_VIEWER, row.currentResource, row.originalResource);
           }}
