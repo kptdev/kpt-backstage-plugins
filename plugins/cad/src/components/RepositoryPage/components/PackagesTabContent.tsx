@@ -79,7 +79,7 @@ export const PackagesTabContent = ({
 
   const [display, setDisplay] = useState<string>(Display.ALL);
 
-  const getChip = (label: string, value: string): JSX.Element => (
+  const getChip = (label: string, value: string): React.JSX.Element => (
     <Chip label={label} selected={display === value} onClick={() => setDisplay(value)} />
   );
 

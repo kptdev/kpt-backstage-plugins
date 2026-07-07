@@ -215,7 +215,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
 
   const [renderErrorMessages, setRenderErrorMessages] = useState<RenderErrorMessage[]>([]);
 
-  const latestPublishedUpstream = useRef<PackageRevision>();
+  const latestPublishedUpstream = useRef<PackageRevision>(undefined);
 
   const configSyncEnabled = isConfigSyncEnabled();
 
@@ -552,7 +552,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
     }
   };
 
-  const getPackageLifecycleDescription = (): JSX.Element | null => {
+  const getPackageLifecycleDescription = (): React.JSX.Element | null => {
     if (packageRevision.spec.lifecycle !== PackageRevisionLifecycle.PUBLISHED) {
       return (
         <div>
@@ -564,7 +564,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
     return null;
   };
 
-  const getCurrentSyncStatus = (): JSX.Element | null => {
+  const getCurrentSyncStatus = (): React.JSX.Element | null => {
     if (syncStatus) {
       const getAlertSeverity = (thisSyncStatus: SyncStatus): Color => {
         switch (thisSyncStatus.state) {

@@ -67,7 +67,7 @@ export const LandingPage = () => {
 
   const { loading, error } = useAsync(() => loadFeatures(api), []);
 
-  const getContent = (): JSX.Element => {
+  const getContent = (): React.JSX.Element => {
     if (loading) {
       return <Progress />;
     } else if (error) {

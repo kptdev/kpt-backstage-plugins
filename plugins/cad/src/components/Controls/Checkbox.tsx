@@ -21,7 +21,7 @@ type CheckboxProps = {
   label: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
-  helperText?: JSX.Element | string;
+  helperText?: React.JSX.Element | string;
 };
 
 const useStyles = makeStyles({

@@ -50,7 +50,7 @@ type PackageRevisionRow = {
   isCurrentRevision: boolean;
 };
 
-const renderStatusColumn = (row: PackageRevisionRow): JSX.Element => {
+const renderStatusColumn = (row: PackageRevisionRow): React.JSX.Element => {
   const isUnpublishedRevision = row.lifecycle !== PackageRevisionLifecycle.PUBLISHED;
 
   return (
@@ -70,7 +70,7 @@ const renderStatusColumn = (row: PackageRevisionRow): JSX.Element => {
 };
 
 const getTableColumns = (): TableColumn<PackageRevisionRow>[] => {
-  const renderStatus = (row: PackageRevisionRow): JSX.Element => renderStatusColumn(row);
+  const renderStatus = (row: PackageRevisionRow): React.JSX.Element => renderStatusColumn(row);
 
   const columns: TableColumn<PackageRevisionRow>[] = [
     {

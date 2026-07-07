@@ -102,14 +102,14 @@ export const getDiffMetadata = (
 ): Metadata => {
   const diffMetadata: Metadata = {};
 
-  const getAddedSpan = (value: any): JSX.Element => (
+  const getAddedSpan = (value: any): React.JSX.Element => (
     <span className={classes.added}>
       <span>+</span>
       {value}
     </span>
   );
 
-  const getRemovedSpan = (value: any): JSX.Element => (
+  const getRemovedSpan = (value: any): React.JSX.Element => (
     <span className={classes.removed}>
       <span>-</span>
       {value}
@@ -124,7 +124,7 @@ export const getDiffMetadata = (
       const originalValue = originalMetadata[key];
 
       const differences = diffArrays(originalValue ?? [], currentValue);
-      const spans: JSX.Element[] = [];
+      const spans: React.JSX.Element[] = [];
 
       for (const diff of differences) {
         for (const value of diff.value) {
@@ -167,7 +167,7 @@ export const getDiffMetadata = (
     if (isArray) {
       const arrayValue = originalMetadata[key];
 
-      const spans: JSX.Element[] = [];
+      const spans: React.JSX.Element[] = [];
 
       for (const value of arrayValue) {
         spans.push(getRemovedSpan(value));

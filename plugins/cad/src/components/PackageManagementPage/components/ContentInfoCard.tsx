@@ -46,7 +46,7 @@ export const useStyles = makeStyles({
   },
 });
 
-const getActions = (repositories: Repository[], className: string): JSX.Element => {
+const getActions = (repositories: Repository[], className: string): React.JSX.Element => {
   const anyRepositoriesRegistered = repositories.length > 0;
 
   return (

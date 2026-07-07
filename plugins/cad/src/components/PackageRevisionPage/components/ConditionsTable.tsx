@@ -27,7 +27,7 @@ type ConditionRow = Condition & {
   id: string;
 };
 
-const renderStatusColumn = (row: ConditionRow): JSX.Element => {
+const renderStatusColumn = (row: ConditionRow): React.JSX.Element => {
   const status = <span style={{ fontWeight: 'normal' }}>{toLowerCase(row.status)}</span>;
 
   switch (row.status) {

@@ -74,8 +74,8 @@ export const PackageRevisionResourcesTable = ({
   onUpdatedResource,
 }: PackageRevisionResourcesTableProps) => {
   const [openDialog, setOpenDialog] = useState<Dialog>(Dialog.NONE);
-  const selectedDialogResource = useRef<DialogResource>();
-  const selectedDialogOriginalResource = useRef<DialogResource>();
+  const selectedDialogResource = useRef<DialogResource>(undefined);
+  const selectedDialogOriginalResource = useRef<DialogResource>(undefined);
 
   const [addResourceAnchorEl, setAddResourceAnchorEl] = React.useState<null | HTMLElement>(null);
   const addResourceMenuOpen = Boolean(addResourceAnchorEl);
@@ -175,7 +175,7 @@ export const PackageRevisionResourcesTable = ({
     }
   };
 
-  const renderLocalConfigColumn = (resourceRow: ResourceRow): JSX.Element | null => {
+  const renderLocalConfigColumn = (resourceRow: ResourceRow): React.JSX.Element | null => {
     if (resourceRow.isLocalConfigResource) {
       return (
         <Fragment>
@@ -189,8 +189,8 @@ export const PackageRevisionResourcesTable = ({
     return null;
   };
 
-  const renderOptionsColumn = (resourceRow: ResourceRow): JSX.Element[] => {
-    const options: JSX.Element[] = [];
+  const renderOptionsColumn = (resourceRow: ResourceRow): React.JSX.Element[] => {
+    const options: React.JSX.Element[] = [];
 
     if (isEditMode && !resourceRow.isDeleted) {
       if (resourceRow.filename !== 'Kptfile') {
@@ -205,7 +205,7 @@ export const PackageRevisionResourcesTable = ({
     return options;
   };
 
-  const renderDiffColumn = (row: ResourceRow): JSX.Element | null => {
+  const renderDiffColumn = (row: ResourceRow): React.JSX.Element | null => {
     if (row.diffSummary) {
       return (
         <Button
@@ -318,7 +318,7 @@ export const PackageRevisionResourcesTable = ({
     addResource(gvk);
   };
 
-  const renderAddResourceButtonGroup = (): JSX.Element => {
+  const renderAddResourceButtonGroup = (): React.JSX.Element => {
     if (isEditMode) {
       return (
         <div style={{ marginTop: '16px' }}>

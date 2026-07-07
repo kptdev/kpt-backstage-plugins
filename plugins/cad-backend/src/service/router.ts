@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import { errorHandler } from '@backstage/backend-common';
 import { Config } from '@backstage/config';
 import { LoggerService } from '@backstage/backend-plugin-api';
 import express from 'express';
@@ -68,7 +67,7 @@ const getClientAuthentication = (
   }
 };
 
-export async function createRouter({ config, logger }: RouterOptions): Promise<express.Router> {
+export async function createRouter({ config, logger }: RouterOptions): Promise<express.Handler> {
   const cadConfig = config.getConfig('configAsData');
 
   const namespace = getResourcesNamespace(cadConfig);
@@ -164,8 +163,6 @@ export async function createRouter({ config, logger }: RouterOptions): Promise<e
   router.put('/*', proxyKubernetesRequest);
   router.patch('/*', proxyKubernetesRequest);
   router.delete('/*', proxyKubernetesRequest);
-
-  router.use(errorHandler());
 
   return router;
 }

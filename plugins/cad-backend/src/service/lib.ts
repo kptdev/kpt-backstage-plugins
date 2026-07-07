@@ -29,7 +29,7 @@ export const getKubernetesConfig = (clusterLocatorMethodType: ClusterLocatorMeth
       break;
     case ClusterLocatorMethodType.LOCAL_PROXY:
       kubeConfig.loadFromClusterAndUser(
-        { name: 'local-proxy', server: 'http://localhost:8001' },
+        { name: 'local-proxy', server: 'http://localhost:8001', skipTLSVerify: true },
         { name: 'local-user' },
       );
       break;

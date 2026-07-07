@@ -16,14 +16,12 @@
 
 import { dump, load } from 'js-yaml';
 
-export type Yaml = any;
-
-export const loadYaml = (yamlString: string): Yaml => {
+export const loadYaml = (yamlString: string): any => {
   return load(yamlString);
 };
 
-export const dumpYaml = (yaml: Yaml): string => {
-  return dump(yaml, { noArrayIndent: true, quotingType: '"' });
+export const dumpYaml = (yaml: any): string => {
+  return dump(yaml, { seqNoIndent: true, quoteStyle: 'double' });
 };
 
 export const createMultiResourceYaml = (resourcesYaml: string[]): string => {

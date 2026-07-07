@@ -27,7 +27,7 @@ import { PackageResourceFilter, PackageResourcesList } from './PackageResourcesL
 
 export type AlertMessage = {
   key: string;
-  message: JSX.Element;
+  message: React.JSX.Element;
 };
 
 type ResourcesTabContentProps = {
