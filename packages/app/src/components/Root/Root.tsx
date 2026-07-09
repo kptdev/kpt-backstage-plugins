@@ -15,8 +15,9 @@
  */
 
 import React, { PropsWithChildren } from 'react';
-import { Link, makeStyles } from '@material-ui/core';
-import LibraryBooks from '@material-ui/icons/LibraryBooks';
+import { Link } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import LibraryBooks from '@mui/icons-material/LibraryBooks';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
 import { NavLink } from 'react-router-dom';
@@ -32,7 +33,7 @@ import {
   SidebarSpace,
   useSidebarOpenState,
 } from '@backstage/core-components';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import { configApiRef, useApi } from '@backstage/core-plugin-api';
 
 const useSidebarLogoStyles = makeStyles({

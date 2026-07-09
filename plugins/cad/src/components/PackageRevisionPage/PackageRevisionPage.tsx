@@ -16,8 +16,10 @@
 
 import { Breadcrumbs, ContentHeader, Progress } from '@backstage/core-components';
 import { errorApiRef, useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles, Typography } from '@material-ui/core';
-import Alert, { Color } from '@material-ui/lab/Alert';
+import { Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
+import type { AlertColor } from '@mui/material';
 import { cloneDeep, uniq } from 'lodash';
 import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -566,7 +568,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
 
   const getCurrentSyncStatus = (): React.JSX.Element | null => {
     if (syncStatus) {
-      const getAlertSeverity = (thisSyncStatus: SyncStatus): Color => {
+      const getAlertSeverity = (thisSyncStatus: SyncStatus): AlertColor => {
         switch (thisSyncStatus.state) {
           case SyncStatusState.ERROR:
           case SyncStatusState.STALLED:

@@ -158,11 +158,11 @@ export async function createRouter({ config, logger }: RouterOptions): Promise<e
   router.get('/v1/features', getFeatures);
   router.get('/v1/function-catalog', getFunctionCatalog);
 
-  router.get('/*', proxyKubernetesRequest);
-  router.post('/*', proxyKubernetesRequest);
-  router.put('/*', proxyKubernetesRequest);
-  router.patch('/*', proxyKubernetesRequest);
-  router.delete('/*', proxyKubernetesRequest);
+  router.get('/{*path}', proxyKubernetesRequest);
+  router.post('/{*path}', proxyKubernetesRequest);
+  router.put('/{*path}', proxyKubernetesRequest);
+  router.patch('/{*path}', proxyKubernetesRequest);
+  router.delete('/{*path}', proxyKubernetesRequest);
 
   return router;
 }

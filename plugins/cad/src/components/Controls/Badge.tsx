@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { Badge as MaterialBadge, makeStyles } from '@material-ui/core';
+import { Badge as MaterialBadge } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { ReactNode } from 'react';
 
 type BadgeProps = {

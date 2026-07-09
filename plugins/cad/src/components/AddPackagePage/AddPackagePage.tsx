@@ -23,8 +23,9 @@ import {
   SimpleStepperStep,
 } from '@backstage/core-components';
 import { errorApiRef, useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles, TextField, Typography } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { TextField, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';

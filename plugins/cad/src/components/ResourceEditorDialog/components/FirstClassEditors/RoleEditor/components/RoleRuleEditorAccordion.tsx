@@ -15,8 +15,8 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Button, TextField } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import React, { Fragment, useRef } from 'react';
 import { PolicyRule } from '../../../../../../types/Role';
 import { MultiSelect } from '../../../../../Controls/MultiSelect';

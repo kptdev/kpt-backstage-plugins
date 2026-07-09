@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import React, { useRef } from 'react';
 import { PackageVariantInjectors } from '../../../../../../../types/PackageVariant';
 import { EditorAccordion } from '../../../Controls';

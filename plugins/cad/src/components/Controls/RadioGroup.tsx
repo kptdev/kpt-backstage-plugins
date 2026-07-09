@@ -14,15 +14,8 @@
  * limitations under the License.
  */
 
-import {
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  FormLabel,
-  makeStyles,
-  Radio,
-  RadioGroup as MaterialRadioGroup,
-} from '@material-ui/core';
+import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup as MaterialRadioGroup } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { snakeCase } from 'lodash';
 import React, { Fragment } from 'react';
 

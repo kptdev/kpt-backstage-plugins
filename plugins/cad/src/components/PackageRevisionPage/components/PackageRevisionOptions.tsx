@@ -16,7 +16,7 @@
 
 import { LinkButton } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import React, { Fragment } from 'react';
 import { clonePackageRouteRef, editPackageRouteRef, packageRouteRef } from '../../../routes';
 import { PackageRevision, PackageRevisionLifecycle } from '../../../types/PackageRevision';

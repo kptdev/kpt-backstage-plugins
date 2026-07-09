@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
 import { isEqual } from 'lodash';
 import React from 'react';
 import { PxeConfigurationEntry } from './types/PxeConfiguration.types';

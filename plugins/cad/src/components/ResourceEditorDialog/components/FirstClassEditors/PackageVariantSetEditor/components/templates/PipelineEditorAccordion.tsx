@@ -15,8 +15,8 @@
  */
 
 import { useApi } from '@backstage/core-plugin-api';
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Button } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import useAsync from 'react-use/lib/useAsync';
 import { Function } from '../../../../../../../types/Function';

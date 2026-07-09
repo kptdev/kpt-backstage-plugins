@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Button, TextField } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 import React, { Fragment, useRef } from 'react';
 import { KubernetesKeyValueObject } from '../../../../../types/KubernetesResource';
 import { toLowerCase } from '../../../../../utils/string';

@@ -16,8 +16,8 @@
 
 import React, { useRef, useState } from 'react';
 import { clone } from 'lodash';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { Button } from '@material-ui/core';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Button } from '@mui/material';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';
 import {
   PackageVariantSetRepositorySelector,

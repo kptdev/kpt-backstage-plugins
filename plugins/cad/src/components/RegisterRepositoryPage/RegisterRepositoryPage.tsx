@@ -23,7 +23,8 @@ import {
   SimpleStepperStep,
 } from '@backstage/core-components';
 import { useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles, TextField, Typography } from '@material-ui/core';
+import { TextField, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { kebabCase, startCase } from 'lodash';
 import React, { Fragment, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import { Card, CardContent, makeStyles } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import { Card, CardContent } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
 import React, { Fragment, useState } from 'react';
 import { Function } from '../../../types/Function';
 import { Repository, RepositoryContent } from '../../../types/Repository';

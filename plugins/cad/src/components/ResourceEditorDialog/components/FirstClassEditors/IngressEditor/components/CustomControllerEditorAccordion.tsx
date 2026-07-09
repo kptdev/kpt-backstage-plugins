@@ -15,7 +15,7 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import React, { Fragment, useMemo, useRef } from 'react';
 import { Select } from '../../../../../Controls';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';

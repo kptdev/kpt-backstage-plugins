@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@mui/icons-material/Close';
 import { isEqual } from 'lodash';
 import React from 'react';
 import { IconButton } from '../../../../../../Controls';

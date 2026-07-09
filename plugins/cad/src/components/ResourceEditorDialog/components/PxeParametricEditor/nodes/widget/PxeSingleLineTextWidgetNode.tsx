@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { makeStyles, TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { useContext } from 'react';
 import { PxeSingleLineTextWidgetEntry } from '../../types/PxeConfiguration.types';
 import { PxeParametricEditorNodeProps } from '../../PxeParametricEditorNode';

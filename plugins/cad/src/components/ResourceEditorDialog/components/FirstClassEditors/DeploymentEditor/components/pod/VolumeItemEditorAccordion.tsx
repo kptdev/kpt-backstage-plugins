@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Button, TextField } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { clone } from 'lodash';
 import React, { Fragment, useRef } from 'react';
 import { KeyToPath } from '../../../../../../../types/Pod';

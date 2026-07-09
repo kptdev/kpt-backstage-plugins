@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import React, { Fragment } from 'react';
 import { AccordionState, EditorAccordion } from './EditorAccordion';
 

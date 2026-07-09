@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import { Accordion, AccordionDetails, AccordionSummary, makeStyles, Typography } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React, { ChangeEvent, Dispatch, ReactNode, SetStateAction, useEffect, useMemo, useRef } from 'react';
 
 export type AccordionState = [string | undefined, Dispatch<SetStateAction<string | undefined>>];

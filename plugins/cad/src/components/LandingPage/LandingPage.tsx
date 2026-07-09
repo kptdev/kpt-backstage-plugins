@@ -16,7 +16,7 @@
 
 import { Content, Header, Page, Progress } from '@backstage/core-components';
 import { configApiRef, useApi } from '@backstage/core-plugin-api';
-import { Alert } from '@material-ui/lab';
+import { Alert } from '@mui/material';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';

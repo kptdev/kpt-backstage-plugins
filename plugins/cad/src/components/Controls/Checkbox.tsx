@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { Checkbox as MaterialCheckbox, FormControlLabel, FormHelperText, makeStyles } from '@material-ui/core';
+import { Checkbox as MaterialCheckbox, FormControlLabel, FormHelperText } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { ChangeEvent } from 'react';
 
 type CheckboxProps = {

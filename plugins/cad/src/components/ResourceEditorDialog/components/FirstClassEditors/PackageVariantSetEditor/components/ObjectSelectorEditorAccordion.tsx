@@ -16,8 +16,8 @@
 
 import React, { useRef, useState } from 'react';
 import { clone } from 'lodash';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { TextField, Button } from '@material-ui/core';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { TextField, Button } from '@mui/material';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';
 import { PackageVariantSetObjectSelector, PackageVariantSetTempleate } from '../../../../../../types/PackageVariantSet';
 import { KeyValueEditorAccordion } from '../../Controls';

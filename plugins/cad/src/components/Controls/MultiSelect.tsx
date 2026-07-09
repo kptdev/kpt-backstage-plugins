@@ -15,7 +15,7 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { FormControl, FormHelperText, InputLabel, MenuItem, Select as MaterialSelect } from '@material-ui/core';
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select as MaterialSelect } from '@mui/material';
 import React, { ChangeEvent } from 'react';
 
 type MultiSelectProps = {

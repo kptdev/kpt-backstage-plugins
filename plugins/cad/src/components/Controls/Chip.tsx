@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { Chip as MaterialChip, makeStyles } from '@material-ui/core';
+import { Chip as MaterialChip } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React from 'react';
 
 type ChipProps = {

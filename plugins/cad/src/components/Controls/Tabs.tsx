@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { makeStyles, Tab as MUITab, Tabs as MUITabs } from '@material-ui/core';
+import { Tab as MUITab, Tabs as MUITabs } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { ReactElement, ReactNode } from 'react';
 
 type TabsProps = {

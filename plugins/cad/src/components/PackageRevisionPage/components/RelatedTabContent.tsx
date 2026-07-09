@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
 import { groupBy } from 'lodash';
 import React, { Fragment } from 'react';
 import { PackageSummary } from '../../../utils/packageSummary';

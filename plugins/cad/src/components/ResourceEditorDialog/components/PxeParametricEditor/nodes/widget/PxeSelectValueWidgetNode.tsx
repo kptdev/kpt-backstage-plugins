@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { FormControl, InputLabel, makeStyles, MenuItem, Select } from '@material-ui/core';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { nanoid } from 'nanoid';
 import React, { useContext, useRef } from 'react';
 import { PxeSelectValueWidgetEntry } from '../../types/PxeConfiguration.types';

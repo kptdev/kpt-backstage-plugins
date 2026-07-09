@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { SvgIcon } from '@material-ui/core';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import { SvgIcon } from '@mui/material';
+import DraftsIcon from '@mui/icons-material/Drafts';
 import React, { Fragment } from 'react';
 import { PackageRevisionLifecycle } from '../../types/PackageRevision';
 

@@ -16,10 +16,10 @@
 
 import { Table, TableColumn } from '@backstage/core-components';
 import { errorApiRef, useApi } from '@backstage/core-plugin-api';
-import { Button, Divider, Menu, MenuItem } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import SettingsIcon from '@material-ui/icons/Settings';
+import { Button, Divider, Menu, MenuItem } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { cloneDeep, startCase } from 'lodash';
 import React, { Fragment, useRef, useState } from 'react';
 import { KubernetesKeyValueObject, KubernetesResource } from '../../../types/KubernetesResource';

@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { IconButton as MaterialIconButton, makeStyles, Tooltip } from '@material-ui/core';
+import { IconButton as MaterialIconButton, Tooltip } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { ReactNode } from 'react';
 
 type IconButtonProps = {

@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import { makeStyles, Tab, Tabs } from '@material-ui/core';
+import { Tab, Tabs } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React from 'react';
 import { PxeConfigurationTab } from './types/PxeConfiguration.types';
 import { PxeParametricEditorNodeList } from './PxeParametricEditorNodeList';

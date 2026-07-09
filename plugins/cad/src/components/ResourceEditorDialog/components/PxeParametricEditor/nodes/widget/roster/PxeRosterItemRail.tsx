@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
 import React from 'react';
 import { PXE_COLOR_RAIL, PXE_RAIL_BAR_HEIGHT_DEFAULT, PXE_RAIL_WIDTH } from '../../../PxeSharedStyles';
 

@@ -15,8 +15,8 @@
  */
 
 import { StructuredMetadataTable } from '@backstage/core-components';
-import { makeStyles } from '@material-ui/core';
-import { ClassNameMap } from '@material-ui/core/styles/withStyles';
+import { makeStyles } from '@mui/styles';
+import { ClassNameMap } from '@mui/styles';
 import { diffArrays } from 'diff';
 import React, { Fragment } from 'react';
 import { KubernetesResource } from '../../../../../types/KubernetesResource';

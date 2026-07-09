@@ -16,8 +16,9 @@
 
 import { Breadcrumbs, ContentHeader, Progress } from '@backstage/core-components';
 import { useApi } from '@backstage/core-plugin-api';
-import { makeStyles, Typography } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import { Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
 import React from 'react';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../apis';

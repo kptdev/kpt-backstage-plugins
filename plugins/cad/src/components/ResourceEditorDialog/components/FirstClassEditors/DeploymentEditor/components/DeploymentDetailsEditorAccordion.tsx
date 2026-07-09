@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import { clone } from 'lodash';
 import React, { Fragment, useRef, useState } from 'react';
 import { DeploymentStrategy } from '../../../../../../types/Deployment';

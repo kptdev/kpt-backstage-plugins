@@ -15,7 +15,7 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import { clone, startCase } from 'lodash';
 import React, { Fragment, useRef } from 'react';
 import { buildSelectItemsFromList } from '../../../../../../../utils/selectItem';

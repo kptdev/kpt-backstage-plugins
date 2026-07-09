@@ -16,8 +16,8 @@
 
 import { InfoCard } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
 import React, { Fragment } from 'react';
 import { packagesRouteRef } from '../../../routes';
 import { Repository } from '../../../types/Repository';

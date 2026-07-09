@@ -31,9 +31,10 @@
     "@backstage/core-components": "^0.18.11",
     "@backstage/core-plugin-api": "^1.12.7",
     "@backstage/theme": "^0.7.3",
-    "@mui/material": "^9.2.0",
-    "@mui/icons-material": "^9.2.0",
-    "@mui/lab": "9.0.0-beta.6",
+    "@mui/material": "^5.18.0",
+    "@mui/icons-material": "^5.18.0",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@mui/styles": "^5.18.0",
     "@monaco-editor/loader": "1.7.0",
     "@monaco-editor/react": "4.7.0",
     "change-case": "^5.4.4",
@@ -47,8 +48,8 @@
     "react-use": "^17.2.4"
   },
   "peerDependencies": {
-    "react": "^19.2.7",
-    "react-router-dom": "^7.18.1"
+    "react": "^18.2.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@backstage/cli": "^0.36.3",

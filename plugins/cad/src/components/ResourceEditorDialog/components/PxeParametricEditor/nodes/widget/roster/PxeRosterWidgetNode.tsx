@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import { Button, makeStyles } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import AddIcon from '@mui/icons-material/Add';
 import React, { useContext, useState } from 'react';
 import { PxeParametricEditorNodeProps } from '../../../PxeParametricEditorNode';
 import { PxeRosterWidgetEntry, PxeValueType } from '../../../types/PxeConfiguration.types';

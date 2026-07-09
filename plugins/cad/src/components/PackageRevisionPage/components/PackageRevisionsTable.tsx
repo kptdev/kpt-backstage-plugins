@@ -30,7 +30,7 @@ import {
 } from '../../../utils/packageRevisionResources';
 import { RevisionSummary } from '../../../utils/revisionSummary';
 import { IconButton, PackageIcon } from '../../Controls';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type PackageRevisionsTableProps = {
   repository: Repository;

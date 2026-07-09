@@ -15,7 +15,8 @@
  */
 
 import { useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { Button, makeStyles } from '@material-ui/core';
+import { Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { Fragment, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { configAsDataApiRef } from '../../../apis';

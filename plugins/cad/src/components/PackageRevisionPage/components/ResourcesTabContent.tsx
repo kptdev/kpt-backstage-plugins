@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import { Card, CardContent, makeStyles, TextField } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
+import { Card, CardContent, TextField } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Alert } from '@mui/material';
 import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { PackageRevisionLifecycle } from '../../../types/PackageRevision';
 import { PackageRevisionResourcesMap } from '../../../types/PackageRevisionResource';
