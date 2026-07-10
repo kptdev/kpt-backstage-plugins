@@ -117,33 +117,47 @@ export async function createRouter({ config, logger }: RouterOptions): Promise<e
     });
   };
 
-  const proxyKubernetesRequest = (request: express.Request, response: express.Response): void => {
+  const proxyKubernetesRequest = async (request: express.Request, response: express.Response): Promise<void> => {
     logger.info(`${request.method} ${request.url}`);
+
+    const httpsOpts: Record<string, any> = {};
+    await kubeConfig.applyToHTTPSOptions(httpsOpts);
 
     const requestOptions: requestLibrary.Options = {
       baseUrl: k8sApiServerUrl,
       url: request.url,
       method: request.method,
-      body: Object.keys(request.body).length === 0 ? undefined : JSON.stringify(request.body),
+      body: request.body && Object.keys(request.body).length > 0 ? JSON.stringify(request.body) : undefined,
+      headers: httpsOpts.headers || {},
+      agentOptions: {
+        ca: httpsOpts.ca,
+        cert: httpsOpts.cert,
+        key: httpsOpts.key,
+        rejectUnauthorized: httpsOpts.rejectUnauthorized,
+      },
     };
 
-    kubeConfig.applyToRequest(requestOptions);
+    if (httpsOpts.auth) {
+      requestOptions.headers = requestOptions.headers ?? {};
+      (requestOptions.headers as Record<string, string>).authorization =
+        'Basic ' + Buffer.from(httpsOpts.auth).toString('base64');
+    }
 
     const useEndUserAuthz = clientAuthentication !== 'none';
     if (useEndUserAuthz) {
       requestOptions.headers = requestOptions.headers ?? {};
-      requestOptions.headers.authorization = request.headers.authorization;
+      (requestOptions.headers as Record<string, string>).authorization = request.headers.authorization || '';
     }
 
     const useServiceAccount = clusterLocatorMethodAuthProvider === ClusterLocatorAuthProvider.SERVICE_ACCOUNT;
     if (useServiceAccount) {
       requestOptions.headers = requestOptions.headers ?? {};
-      requestOptions.headers.authorization = `Bearer ${serviceAccountToken}`;
+      (requestOptions.headers as Record<string, string>).authorization = `Bearer ${serviceAccountToken}`;
     }
 
     requestLibrary(requestOptions, (k8Error, k8Response, k8Body) => {
       if (k8Error) {
-        response.status(500);
+        response.status(500).send(k8Error.message);
       } else {
         response.status(k8Response.statusCode);
         response.send(k8Body);
