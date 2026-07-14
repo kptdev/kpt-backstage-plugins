@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-import { TextField } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import React, { useContext } from 'react';
+import TextField from '@mui/material/TextField';
+import { FC, useContext } from 'react';
 import { PxeSingleLineTextWidgetEntry } from '../../types/PxeConfiguration.types';
 import { PxeParametricEditorNodeProps } from '../../PxeParametricEditorNode';
 import { withCurrentValues } from '../../utils/rendering/withCurrentValues';
 import { generateValueLabel } from '../../utils/generateLabelsForWidgets';
 import { useDiagnostics } from '../../PxeDiagnosticsContext';
 import { PxeResourceChangeRequestContext } from '../../PxeResourceChangeRequestContext';
+import { css } from '@emotion/css';
 import {
   PXE_COLOR_BACKGROUND_WHITE,
   PXE_COLOR_BORDER_DEFAULT,
@@ -30,7 +30,7 @@ import {
   PXE_INPUT_WIDTH,
 } from '../../PxeSharedStyles';
 
-export const PxeSingleLineTextWidgetNode: React.FC<PxeParametricEditorNodeProps> = withCurrentValues(
+export const PxeSingleLineTextWidgetNode: FC<PxeParametricEditorNodeProps> = withCurrentValues(
   ({ configurationEntry, currentValues: [currentValue] }) => {
     useDiagnostics(configurationEntry);
 
@@ -60,8 +60,8 @@ export const PxeSingleLineTextWidgetNode: React.FC<PxeParametricEditorNodeProps>
   },
 );
 
-const useStyles = makeStyles({
-  textField: {
+const useStyles = () => ({
+  textField: css({
     width: '100%',
     maxWidth: PXE_INPUT_WIDTH,
     marginTop: PXE_INPUT_TOP_MARGIN,
@@ -72,5 +72,5 @@ const useStyles = makeStyles({
     '& fieldset': {
       borderColor: PXE_COLOR_BORDER_DEFAULT,
     },
-  },
+  }),
 });

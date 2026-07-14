@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 import { get } from 'lodash';
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 import { ResourceEditorDialogProps } from './ResourceEditorDialog';
 import { parseYaml } from './components/PxeParametricEditor/utils/yamlConversion';
 import { YamlViewer } from '../Controls';
@@ -28,10 +31,11 @@ import { PorchTokenParametricEditor } from './components/ParametricFirstClassEdi
 import { PorchNetworkParametricEditor } from './components/ParametricFirstClassEditors/PorchNetworkParametricEditor';
 import { PorchWorkloadClusterParametricEditor } from './components/ParametricFirstClassEditors/PorchWorkloadClusterParametricEditor';
 import { PorchCapacityParametricEditor } from './components/ParametricFirstClassEditors/PorchCapacityParametricEditor';
+import { css } from '@emotion/css';
 
 type EditorViewMode = 'gui' | 'yaml';
 
-const EDITOR_COMPONENT_BY_GVK: Record<string, React.FC<PxeConfiguredEditorProps>> = {
+const EDITOR_COMPONENT_BY_GVK: Record<string, FC<PxeConfiguredEditorProps>> = {
   'infra.kpt.dev/v1alpha1/Token': PorchTokenParametricEditor,
   'infra.kpt.dev/v1alpha1/Network': PorchNetworkParametricEditor,
   'infra.kpt.dev/v1alpha1/WorkloadCluster': PorchWorkloadClusterParametricEditor,
@@ -109,12 +113,12 @@ const dialogTitleFromResource = (resource: object) => {
   return `${resourceKind} ${resourceName}`.trim() || 'Edit resource';
 };
 
-const useStyles = makeStyles({
-  editorContainer: {
+const useStyles = () => ({
+  editorContainer: css({
     width: '1200px',
     height: 'calc(100vh - 480px)',
     marginBottom: '16px',
     paddingRight: '50px',
     overflowY: 'auto',
-  },
+  }),
 });

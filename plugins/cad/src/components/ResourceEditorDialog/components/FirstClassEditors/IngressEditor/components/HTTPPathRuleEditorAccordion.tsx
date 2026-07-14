@@ -15,10 +15,11 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { clone, startCase } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { HTTPIngressPath, IngressBackend } from '../../../../../../types/Ingress';
 import { PackageResource } from '../../../../../../utils/packageRevisionResources';
 import { sortByLabel } from '../../../../../../utils/selectItem';

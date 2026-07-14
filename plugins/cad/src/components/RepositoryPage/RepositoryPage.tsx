@@ -16,9 +16,9 @@
 
 import { Breadcrumbs, ContentHeader, LinkButton, Progress } from '@backstage/core-components';
 import { useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { Typography } from '@mui/material';
-import { Alert } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
+import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../apis';

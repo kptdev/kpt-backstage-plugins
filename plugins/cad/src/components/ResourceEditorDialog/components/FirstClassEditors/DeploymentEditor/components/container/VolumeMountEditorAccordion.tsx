@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { clone } from 'lodash';
-import React, { Fragment, useMemo, useRef } from 'react';
+import { Fragment, useMemo, useRef } from 'react';
 import { Volume, VolumeMount } from '../../../../../../../types/Pod';
 import { buildSelectItemsFromList, sortByLabel } from '../../../../../../../utils/selectItem';
 import { Checkbox, Select } from '../../../../../../Controls';

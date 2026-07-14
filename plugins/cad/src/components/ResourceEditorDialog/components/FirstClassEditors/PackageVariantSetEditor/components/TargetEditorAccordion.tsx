@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import React, { useRef, useState } from 'react';
-import { Button } from '@mui/material';
+import { useRef, useState } from 'react';
+import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import { EditorAccordion } from '../../Controls';
 import { AccordionState } from '../../Controls/EditorAccordion';

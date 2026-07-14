@@ -16,9 +16,8 @@
 
 import { Config } from '@backstage/config';
 import { LoggerService } from '@backstage/backend-plugin-api';
-import express from 'express';
-import Router from 'express-promise-router';
-import requestLibrary from 'request';
+import express, { Router } from 'express';
+import https from 'node:https';
 import {
   ClusterLocatorAuthProvider,
   getClusterLocatorMethodAuthProvider,
@@ -67,7 +66,7 @@ const getClientAuthentication = (
   }
 };
 
-export async function createRouter({ config, logger }: RouterOptions): Promise<express.Handler> {
+export async function createRouter({ config, logger }: RouterOptions): Promise<express.Router> {
   const cadConfig = config.getConfig('configAsData');
 
   const namespace = getResourcesNamespace(cadConfig);
@@ -94,6 +93,19 @@ export async function createRouter({ config, logger }: RouterOptions): Promise<e
 
   const k8sApiServerUrl = currentCluster.server;
 
+  // Set up TLS options for the Kubernetes API server connection
+  const httpsOptions: Record<string, unknown> = {};
+  await kubeConfig.applyToHTTPSOptions(httpsOptions);
+  const k8sAgent = new https.Agent({
+    ca: httpsOptions.ca as string | Buffer | undefined,
+    cert: httpsOptions.cert as string | Buffer | undefined,
+    key: httpsOptions.key as string | Buffer | undefined,
+  });
+  const k8sAuthHeaders: Record<string, string> = {};
+  if (httpsOptions.headers && typeof httpsOptions.headers === 'object') {
+    Object.assign(k8sAuthHeaders, httpsOptions.headers);
+  }
+
   const healthCheck = (_: express.Request, response: express.Response): void => {
     response.send({ status: 'ok' });
   };
@@ -106,63 +118,64 @@ export async function createRouter({ config, logger }: RouterOptions): Promise<e
     });
   };
 
-  const getFunctionCatalog = (_: express.Request, response: express.Response): void => {
-    requestLibrary('https://catalog.kpt.dev/catalog-v2.json', (error, catalogResponse, catalogBody) => {
-      if (error) {
-        response.status(500);
-      } else {
-        response.status(catalogResponse.statusCode);
-        response.send(catalogBody);
-      }
-    });
+  const getFunctionCatalog = async (_: express.Request, response: express.Response): Promise<void> => {
+    try {
+      const catalogResponse = await fetch('https://catalog.kpt.dev/catalog-v2.json');
+      const catalogBody = await catalogResponse.text();
+      response.status(catalogResponse.status).send(catalogBody);
+    } catch (error) {
+      response.status(500).send({ error: 'Failed to fetch function catalog' });
+    }
   };
 
   const proxyKubernetesRequest = async (request: express.Request, response: express.Response): Promise<void> => {
     logger.info(`${request.method} ${request.url}`);
 
-    const httpsOpts: Record<string, any> = {};
-    await kubeConfig.applyToHTTPSOptions(httpsOpts);
-
-    const requestOptions: requestLibrary.Options = {
-      baseUrl: k8sApiServerUrl,
-      url: request.url,
-      method: request.method,
-      body: request.body && Object.keys(request.body).length > 0 ? JSON.stringify(request.body) : undefined,
-      headers: httpsOpts.headers || {},
-      agentOptions: {
-        ca: httpsOpts.ca,
-        cert: httpsOpts.cert,
-        key: httpsOpts.key,
-        rejectUnauthorized: httpsOpts.rejectUnauthorized,
-      },
+    const headers: Record<string, string> = {
+      ...k8sAuthHeaders,
+      'Content-Type': 'application/json',
     };
 
-    if (httpsOpts.auth) {
-      requestOptions.headers = requestOptions.headers ?? {};
-      (requestOptions.headers as Record<string, string>).authorization =
-        'Basic ' + Buffer.from(httpsOpts.auth).toString('base64');
-    }
-
     const useEndUserAuthz = clientAuthentication !== 'none';
-    if (useEndUserAuthz) {
-      requestOptions.headers = requestOptions.headers ?? {};
-      (requestOptions.headers as Record<string, string>).authorization = request.headers.authorization || '';
+    if (useEndUserAuthz && request.headers.authorization) {
+      headers.Authorization = request.headers.authorization;
     }
 
     const useServiceAccount = clusterLocatorMethodAuthProvider === ClusterLocatorAuthProvider.SERVICE_ACCOUNT;
     if (useServiceAccount) {
-      requestOptions.headers = requestOptions.headers ?? {};
-      (requestOptions.headers as Record<string, string>).authorization = `Bearer ${serviceAccountToken}`;
+      headers.Authorization = `Bearer ${serviceAccountToken}`;
     }
 
-    requestLibrary(requestOptions, (k8Error, k8Response, k8Body) => {
-      if (k8Error) {
-        response.status(500).send(k8Error.message);
-      } else {
-        response.status(k8Response.statusCode);
-        response.send(k8Body);
-      }
-    });
+    const body = request.body && Object.keys(request.body).length > 0 ? JSON.stringify(request.body) : undefined;
+
+    try {
+      const url = new URL(request.url, k8sApiServerUrl);
+      const k8Body = await new Promise<{ statusCode: number; body: string }>((resolve, reject) => {
+        const req = https.request(
+          {
+            hostname: url.hostname,
+            port: url.port,
+            path: url.pathname + url.search,
+            method: request.method,
+            headers,
+            agent: k8sAgent,
+          },
+          res => {
+            let data = '';
+            res.on('data', chunk => (data += chunk));
+            res.on('end', () => resolve({ statusCode: res.statusCode ?? 500, body: data }));
+          },
+        );
+        req.on('error', reject);
+        if (body) req.write(body);
+        req.end();
+      });
+      response.status(k8Body.statusCode).send(k8Body.body);
+    } catch (error) {
+      const err = error instanceof Error ? error : new Error(String(error));
+      logger.error(`Failed to proxy request: ${err.message}`);
+      response.status(500).send({ error: 'Failed to proxy request to Kubernetes API' });
+    }
   };
 
   const router = Router();

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { renderWithEffects } from '@backstage/test-utils';
 
 jest.mock('@backstage/plugin-user-settings', () => ({

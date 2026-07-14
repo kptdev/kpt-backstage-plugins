@@ -16,7 +16,6 @@
 
 import { Link } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import React from 'react';
 import { packagesRouteRef } from '../../routes';
 import { ContentDetails } from '../../utils/repository';
 import { useLinkStyles } from './styles';

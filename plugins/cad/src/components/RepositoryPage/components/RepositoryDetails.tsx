@@ -15,7 +15,6 @@
  */
 
 import { InfoCard, StructuredMetadataTable } from '@backstage/core-components';
-import React from 'react';
 import { Repository } from '../../../types/Repository';
 import { RepositorySummary } from '../../../types/RepositorySummary';
 import { getPackageDescriptor, isReadOnlyRepository } from '../../../utils/repository';

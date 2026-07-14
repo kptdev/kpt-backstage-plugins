@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { EnvFromSource, EnvVar } from '../../../../../../../types/Pod';
 import { PackageResource } from '../../../../../../../utils/packageRevisionResources';
 import { AccordionState, EditorAccordion } from '../../../Controls/EditorAccordion';

@@ -15,7 +15,7 @@
  */
 
 import { isEqual } from 'lodash';
-import React from 'react';
+import { FC, memo } from 'react';
 import { PxeConfigurationEntry, PxeNodeType } from './types/PxeConfiguration.types';
 import { PxeNodeListPositionInfo } from './types/PxeParametricEditor.types';
 import { PxeRowLayoutNode } from './nodes/layout/PxeRowLayoutNode';
@@ -28,7 +28,7 @@ export type PxeParametricEditorNodeProps = {
   readonly listPositionInfo: PxeNodeListPositionInfo;
 };
 
-const NODE_BY_TYPE_RECORD: Record<PxeNodeType, React.FC<PxeParametricEditorNodeProps>> = {
+const NODE_BY_TYPE_RECORD: Record<PxeNodeType, FC<PxeParametricEditorNodeProps>> = {
   [PxeNodeType.RowLayout]: PxeRowLayoutNode,
 
   [PxeNodeType.Roster]: PxeRosterWidgetNode,
@@ -36,7 +36,7 @@ const NODE_BY_TYPE_RECORD: Record<PxeNodeType, React.FC<PxeParametricEditorNodeP
   [PxeNodeType.SelectValue]: PxeSelectValueWidgetNode,
 };
 
-export const PxeParametricEditorNode: React.FC<PxeParametricEditorNodeProps> = React.memo(props => {
+export const PxeParametricEditorNode: FC<PxeParametricEditorNodeProps> = memo(props => {
   const { configurationEntry } = props;
   const SpecificEditorNode = NODE_BY_TYPE_RECORD[configurationEntry.type];
 

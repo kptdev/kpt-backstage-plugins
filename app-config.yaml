@@ -53,3 +53,10 @@ configAsData:
 
     # Determines how the client will authenticate with the Kubernetes cluster.
     authProvider: current-context
+
+catalog:
+  locations: []
+
+auth:
+  providers:
+    guest: {}

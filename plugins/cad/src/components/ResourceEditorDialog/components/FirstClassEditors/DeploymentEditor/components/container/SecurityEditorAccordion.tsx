@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import { clone } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { SecurityContext } from '../../../../../../../types/Pod';
 import { getNumber } from '../../../../../../../utils/string';
 import { Checkbox } from '../../../../../../Controls';

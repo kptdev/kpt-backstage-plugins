@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import React, { PropsWithChildren } from 'react';
-import { Link } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { PropsWithChildren } from 'react';
+import Link from '@mui/material/Link';
 import LibraryBooks from '@mui/icons-material/LibraryBooks';
 import LogoFull from './LogoFull';
 import LogoIcon from './LogoIcon';
@@ -35,20 +34,21 @@ import {
 } from '@backstage/core-components';
 import MenuIcon from '@mui/icons-material/Menu';
 import { configApiRef, useApi } from '@backstage/core-plugin-api';
+import { css } from '@emotion/css';
 
-const useSidebarLogoStyles = makeStyles({
-  root: {
+const useSidebarLogoStyles = () => ({
+  root: css({
     width: sidebarConfig.drawerWidthClosed,
     height: 3 * sidebarConfig.logoHeight,
     display: 'flex',
     flexFlow: 'row nowrap',
     alignItems: 'center',
     marginBottom: -14,
-  },
-  link: {
+  }),
+  link: css({
     width: sidebarConfig.drawerWidthClosed,
     marginLeft: 24,
-  },
+  }),
 });
 
 const SidebarLogo = () => {

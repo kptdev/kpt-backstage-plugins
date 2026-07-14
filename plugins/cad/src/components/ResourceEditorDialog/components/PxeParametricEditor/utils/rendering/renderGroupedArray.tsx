@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 const DEFAULT_RENDER_GROUPING_FUNCTION = (groupContent: ReactNode, groupIndex: number) => (
   <div key={`group-${groupIndex}`}>{groupContent}</div>

@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { KubernetesKeyValueObject } from '../../../../../types/KubernetesResource';
 import { toLowerCase } from '../../../../../utils/string';
 import { IconButton } from '../../../../Controls';

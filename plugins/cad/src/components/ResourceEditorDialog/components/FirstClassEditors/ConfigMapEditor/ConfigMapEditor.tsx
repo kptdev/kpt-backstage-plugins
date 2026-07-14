@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ConfigMap, ConfigMapMetadata } from '../../../../../types/ConfigMap';
 import { KubernetesKeyValueObject } from '../../../../../types/KubernetesResource';
 import { dumpYaml, loadYaml } from '../../../../../utils/yaml';

@@ -32,11 +32,12 @@ export const cadPlugin = createBackendPlugin({
         httpRouter: coreServices.httpRouter,
       },
       async init({ config, logger, httpRouter }) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         httpRouter.use(
           await createRouter({
             config,
             logger,
-          }),
+          }) as any,
         );
         httpRouter.addAuthPolicy({
           path: '/',

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import { cloneDeep } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { AccordionState, EditorAccordion } from '../../../Controls/EditorAccordion';
 
 type CommandArgsState = {

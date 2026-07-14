@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { clone } from 'lodash';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { HTTPIngressPath, IngressRule } from '../../../../../../types/Ingress';
 import { PackageResource } from '../../../../../../utils/packageRevisionResources';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import { clone } from 'lodash';
-import React, { Fragment, useMemo, useRef, useState } from 'react';
+import { Fragment, useMemo, useRef, useState } from 'react';
 import { Volume } from '../../../../../../types/Pod';
 import { LabelSelector } from '../../../../../../types/Selectors';
 import { StatefulSetUpdateStrategy } from '../../../../../../types/StatefulSet';

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=18.20.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "NODE_ENV=development concurrently \"yarn start\" \"yarn start-backend\"",
@@ -13,10 +13,9 @@
     "build-image": "docker build --target backstage-app --tag kpt-backstage-plugins .",
     "tsc": "tsc",
     "tsc:full": "tsc --skipLibCheck false --incremental false",
-    "clean": "backstage-cli clean && lerna run clean",
-    "diff": "lerna run diff --",
-    "test": "backstage-cli test",
-    "test:all": "lerna run test -- --coverage",
+    "clean": "backstage-cli repo clean",
+    "test": "backstage-cli repo test",
+    "test:all": "backstage-cli repo test --coverage",
     "lint": "backstage-cli repo lint --since origin/main",
     "lint:all": "backstage-cli repo lint",
     "prettier:check": "prettier --check .",
@@ -31,29 +30,22 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^8.0.1",
     "@backstage/cli": "^0.36.3",
     "@backstage/cli-defaults": "^0.1.3",
-    "@jest/environment-jsdom-abstract": "^30",
+    "@jest/environment-jsdom-abstract": "^30.4.1",
     "@spotify/prettier-config": "^15.0.0",
-    "@types/jest": "^30",
-    "concurrently": "^10.0.3",
-    "jest": "^30",
-    "jsdom": "^29",
-    "lerna": "^9.0.7",
-    "prettier": "^3.9.4",
-    "ts-jest": "^29.4.11",
-    "typescript": "^6.0.3"
+    "@testing-library/dom": "^10.4.1",
+    "concurrently": "^9.0.0",
+    "jest": "^30.4.2",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.3.0",
+    "typescript": "^5.4.5"
   },
   "resolutions": {
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@backstage/backend-common/@kubernetes/client-node": "^1.4.0",
-    "@kubernetes/client-node": "^1.4.0",
-    "@backstage/core-components": "^0.18.11",
-    "react-router": "^6.3.0",
-    "react-router-dom": "^6.3.0",
-    "@types/webpack-env": "^1.18.6"
+    "react-router": "^6.30.0",
+    "react-router-dom": "^6.30.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
@@ -64,18 +56,8 @@
       "prettier --write"
     ]
   },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/../../../jest.setup.js",
-      "@testing-library/jest-dom"
-    ],
-    "moduleNameMapper": {
-      "^monaco-editor$": "<rootDir>/../../../__mocks__/monaco-editor.ts"
-    }
-  },
   "dependencies": {
     "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "better-sqlite3": "^12.10.0"
+    "@types/react-dom": "^18"
   }
 }

@@ -15,13 +15,13 @@
  */
 
 import { StructuredMetadataTable } from '@backstage/core-components';
-import { makeStyles } from '@mui/styles';
-import { ClassNameMap } from '@mui/styles';
+import { ClassNameMap } from '@mui/material/styles';
 import { diffArrays } from 'diff';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { KubernetesResource } from '../../../../../types/KubernetesResource';
 import { removeInternalKptAnnotations } from '../../../../../utils/kubernetesResource';
 import { loadYaml } from '../../../../../utils/yaml';
+import { css } from '@emotion/css';
 
 export type Metadata = {
   [key: string]: any;
@@ -36,21 +36,21 @@ type StructuredMetadataProps = {
   showDiff?: boolean;
 };
 
-const useStyles = makeStyles({
-  added: {
+const useStyles = () => ({
+  added: css({
     color: 'green',
     '& > span:first-child': {
       width: '10px',
       display: 'inline-block',
     },
-  },
-  removed: {
+  }),
+  removed: css({
     color: 'red',
     '& > span:first-child': {
       width: '10px',
       display: 'inline-block',
     },
-  },
+  }),
 });
 
 const normalizeMetadata = (metadata: Metadata): void => {
@@ -102,14 +102,14 @@ export const getDiffMetadata = (
 ): Metadata => {
   const diffMetadata: Metadata = {};
 
-  const getAddedSpan = (value: any): React.JSX.Element => (
+  const getAddedSpan = (value: any): JSX.Element => (
     <span className={classes.added}>
       <span>+</span>
       {value}
     </span>
   );
 
-  const getRemovedSpan = (value: any): React.JSX.Element => (
+  const getRemovedSpan = (value: any): JSX.Element => (
     <span className={classes.removed}>
       <span>-</span>
       {value}
@@ -124,7 +124,7 @@ export const getDiffMetadata = (
       const originalValue = originalMetadata[key];
 
       const differences = diffArrays(originalValue ?? [], currentValue);
-      const spans: React.JSX.Element[] = [];
+      const spans: JSX.Element[] = [];
 
       for (const diff of differences) {
         for (const value of diff.value) {
@@ -167,7 +167,7 @@ export const getDiffMetadata = (
     if (isArray) {
       const arrayValue = originalMetadata[key];
 
-      const spans: React.JSX.Element[] = [];
+      const spans: JSX.Element[] = [];
 
       for (const value of arrayValue) {
         spans.push(getRemovedSpan(value));

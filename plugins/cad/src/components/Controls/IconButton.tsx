@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-import { IconButton as MaterialIconButton, Tooltip } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import React, { ReactNode } from 'react';
+import MaterialIconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import { ReactNode } from 'react';
+import { css } from '@emotion/css';
 
 type IconButtonProps = {
   title: string;
@@ -27,11 +28,11 @@ type IconButtonProps = {
   onClick?: () => void;
 };
 
-const useStyles = makeStyles({
-  inTableStyle: {
+const useStyles = () => ({
+  inTableStyle: css({
     position: 'absolute',
     transform: 'translateY(-50%)',
-  },
+  }),
 });
 
 export const IconButton = ({ title, className, inTable, stopPropagation, onClick, children }: IconButtonProps) => {

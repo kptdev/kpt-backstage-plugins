@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { FC } from 'react';
 import { KubernetesResource } from '../../types/KubernetesResource';
 import { getGroupVersionKind } from '../../utils/kubernetesResource';
 import { PackageResource } from '../../utils/packageRevisionResources';
@@ -39,7 +39,7 @@ const MODERN_EDITOR_RESOURCES = [
   'req.kpt.dev/v1alpha1/Capacity',
 ];
 
-export const ResourceEditorDialog: React.FC<ResourceEditorDialogProps> = props => {
+export const ResourceEditorDialog: FC<ResourceEditorDialogProps> = props => {
   const resourceYaml = loadYaml(props.yaml) as KubernetesResource;
   const groupVersionKind = resourceYaml && getGroupVersionKind(resourceYaml);
 

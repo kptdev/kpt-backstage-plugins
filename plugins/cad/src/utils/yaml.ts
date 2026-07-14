@@ -17,6 +17,9 @@
 import { dump, load } from 'js-yaml';
 
 export const loadYaml = (yamlString: string): any => {
+  if (!yamlString || !yamlString.trim()) {
+    return undefined;
+  }
   return load(yamlString);
 };
 

@@ -15,10 +15,11 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import { omit, startCase } from 'lodash';
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { KubernetesKeyValueObject } from '../../../../../types/KubernetesResource';
 import { Service, ServiceMetadata, ServicePort } from '../../../../../types/Service';
 import { PackageResource } from '../../../../../utils/packageRevisionResources';

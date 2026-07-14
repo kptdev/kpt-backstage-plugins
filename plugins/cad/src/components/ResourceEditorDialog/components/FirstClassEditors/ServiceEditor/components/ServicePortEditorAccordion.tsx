@@ -15,10 +15,11 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { clone, isNaN } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { ContainerPort, PodTemplateSpec } from '../../../../../../types/Pod';
 import { ServicePort } from '../../../../../../types/Service';
 import { Select } from '../../../../../Controls/Select';

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@mui/material';
-import { Autocomplete as MaterialAutocomplete } from '@mui/material';
-import React, { ChangeEvent, useEffect, useRef } from 'react';
+import TextField from '@mui/material/TextField';
+import MaterialAutocomplete from '@mui/material/Autocomplete';
+import { ChangeEvent, useEffect, useRef } from 'react';
 
 type AutocompleteProps = {
   label: string;

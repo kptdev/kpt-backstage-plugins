@@ -16,7 +16,7 @@
 
 import CloseIcon from '@mui/icons-material/Close';
 import { isEqual } from 'lodash';
-import React from 'react';
+import { FC, memo } from 'react';
 import { IconButton } from '../../../../../../Controls';
 import { PxeConfigurationEntry, PxeNodeType, PxeValueDescriptor } from '../../../types/PxeConfiguration.types';
 import { PxeResourceChangeRequest } from '../../../types/PxeParametricEditor.types';
@@ -35,7 +35,7 @@ type PxeRosterItemProps = {
   readonly onItemDeletion: (itemIndex: number) => void;
 };
 
-export const PxeRosterItem: React.FC<PxeRosterItemProps> = React.memo(
+export const PxeRosterItem: FC<PxeRosterItemProps> = memo(
   ({
     rosterValueDescriptor,
     itemIndex,

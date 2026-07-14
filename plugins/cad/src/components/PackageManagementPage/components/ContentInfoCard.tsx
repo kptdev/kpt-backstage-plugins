@@ -16,15 +16,15 @@
 
 import { InfoCard } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles } from '@mui/styles';
-import { Alert } from '@mui/material';
-import React, { Fragment } from 'react';
+import Alert from '@mui/material/Alert';
+import { Fragment } from 'react';
 import { packagesRouteRef } from '../../../routes';
 import { Repository } from '../../../types/Repository';
 import { filterPackageSummaries, PackageSummary } from '../../../utils/packageSummary';
 import { isRepositoryReady, RepositoryContentDetails } from '../../../utils/repository';
 import { toLowerCase } from '../../../utils/string';
 import { RegisterRepositoryLink, RepositoryLink } from '../../Links';
+import { css } from '@emotion/css';
 
 type ContentInfoCardProps = {
   contentType: string;
@@ -32,21 +32,21 @@ type ContentInfoCardProps = {
   packages: PackageSummary[];
 };
 
-export const useStyles = makeStyles({
-  summary: {
+export const useStyles = () => ({
+  summary: css({
     marginTop: '8px',
     '& > *:not(:first-child)': {
       marginTop: '8px',
     },
-  },
-  actions: {
+  }),
+  actions: css({
     justifyContent: 'flex-start',
     margin: '12px',
     marginRight: 'auto',
-  },
+  }),
 });
 
-const getActions = (repositories: Repository[], className: string): React.JSX.Element => {
+const getActions = (repositories: Repository[], className: string): JSX.Element => {
   const anyRepositoriesRegistered = repositories.length > 0;
 
   return (

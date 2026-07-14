@@ -15,7 +15,7 @@
  */
 
 import { clone } from 'lodash';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { PodSecurityContext, Volume } from '../../../../../../types/Pod';
 import { PackageResource } from '../../../../../../utils/packageRevisionResources';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';

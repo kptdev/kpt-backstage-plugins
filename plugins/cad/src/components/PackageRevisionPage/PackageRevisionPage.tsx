@@ -16,12 +16,11 @@
 
 import { Breadcrumbs, ContentHeader, Progress } from '@backstage/core-components';
 import { errorApiRef, useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { Alert } from '@mui/material';
-import type { AlertColor } from '@mui/material';
+import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import { AlertColor } from '@mui/material/Alert';
 import { cloneDeep, uniq } from 'lodash';
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../apis';
@@ -76,6 +75,7 @@ import { RelatedPackagesContent } from './components/RelatedPackagesContent';
 import { RelatedTabContent } from './components/RelatedTabContent';
 import { AlertMessage, ResourcesTabContent } from './components/ResourcesTabContent';
 import { processUpdatedResourcesMap } from './updatedResourcesMap/processUpdatedResourcesMap';
+import { css } from '@emotion/css';
 
 export enum PackageRevisionPageMode {
   EDIT = 'edit',
@@ -91,8 +91,8 @@ type RenderErrorMessage = {
   message: string;
 };
 
-const useStyles = makeStyles({
-  packageRevisionOptions: {
+const useStyles = () => ({
+  packageRevisionOptions: css({
     display: 'inherit',
     '& > *': {
       marginTop: 'auto',
@@ -100,14 +100,14 @@ const useStyles = makeStyles({
         marginLeft: '10px',
       },
     },
-  },
-  syncStatusBanner: {
+  }),
+  syncStatusBanner: css({
     padding: '2px 16px',
-  },
-  messageBanner: {
+  }),
+  messageBanner: css({
     whiteSpace: 'break-spaces',
     marginBottom: '16px',
-  },
+  }),
 });
 
 const getDownstreamUpgradesAvailableMessage = (
@@ -217,7 +217,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
 
   const [renderErrorMessages, setRenderErrorMessages] = useState<RenderErrorMessage[]>([]);
 
-  const latestPublishedUpstream = useRef<PackageRevision>(undefined);
+  const latestPublishedUpstream = useRef<PackageRevision>();
 
   const configSyncEnabled = isConfigSyncEnabled();
 
@@ -554,7 +554,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
     }
   };
 
-  const getPackageLifecycleDescription = (): React.JSX.Element | null => {
+  const getPackageLifecycleDescription = (): JSX.Element | null => {
     if (packageRevision.spec.lifecycle !== PackageRevisionLifecycle.PUBLISHED) {
       return (
         <div>
@@ -566,7 +566,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
     return null;
   };
 
-  const getCurrentSyncStatus = (): React.JSX.Element | null => {
+  const getCurrentSyncStatus = (): JSX.Element | null => {
     if (syncStatus) {
       const getAlertSeverity = (thisSyncStatus: SyncStatus): AlertColor => {
         switch (thisSyncStatus.state) {

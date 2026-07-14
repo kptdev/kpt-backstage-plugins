@@ -15,9 +15,9 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import { clone, startCase } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { buildSelectItemsFromList } from '../../../../../../../utils/selectItem';
 import { toLowerCase } from '../../../../../../../utils/string';
 import { Select } from '../../../../../../Controls';

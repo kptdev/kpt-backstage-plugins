@@ -16,7 +16,7 @@
 
 import { SelectItem } from '@backstage/core-components';
 import { clone } from 'lodash';
-import React, { Fragment, useMemo, useRef } from 'react';
+import { Fragment, useMemo, useRef } from 'react';
 import { IngressBackend } from '../../../../../../types/Ingress';
 import { Service, ServicePort } from '../../../../../../types/Service';
 import { PackageResource } from '../../../../../../utils/packageRevisionResources';

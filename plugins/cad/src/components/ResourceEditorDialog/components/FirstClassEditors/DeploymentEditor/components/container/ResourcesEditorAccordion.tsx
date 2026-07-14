@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import { clone } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { ResourceRequirements } from '../../../../../../../types/Pod';
 import { AccordionState, EditorAccordion } from '../../../Controls/EditorAccordion';
 import { useEditorStyles } from '../../../styles';

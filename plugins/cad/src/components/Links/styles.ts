@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@mui/styles';
 
-export const useLinkStyles = makeStyles({
-  breadcrumb: {
+import { css } from '@emotion/css';
+
+export const useLinkStyles = () => ({
+  breadcrumb: css({
     color: 'inherit',
     textDecoration: 'underline',
-  },
+  }),
 });

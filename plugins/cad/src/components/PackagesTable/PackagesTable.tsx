@@ -17,7 +17,7 @@
 import { Table, TableColumn } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { packageRouteRef } from '../../routes';
 import { PackageRevision, PackageRevisionLifecycle } from '../../types/PackageRevision';
@@ -67,7 +67,7 @@ type ConditionalTableColumn<T extends object = {}> = TableColumn<T> & {
 
 type NavigateToPackageRevision = (revision: PackageRevision) => void;
 
-const renderStatusColumn = (row: PackageRow): React.JSX.Element => {
+const renderStatusColumn = (row: PackageRow): JSX.Element => {
   const unpublishedRevision = row.unpublished;
 
   return (
@@ -90,7 +90,7 @@ const renderStatusColumn = (row: PackageRow): React.JSX.Element => {
   );
 };
 
-const renderBlueprintColumn = (row: PackageRow): React.JSX.Element => {
+const renderBlueprintColumn = (row: PackageRow): JSX.Element => {
   if (row.upstreamPackageRevision) {
     return <PackageLink packageRevision={row.upstreamPackageRevision} stopPropagation />;
   }
@@ -98,7 +98,7 @@ const renderBlueprintColumn = (row: PackageRow): React.JSX.Element => {
   return <Fragment>{row.upstreamPackageDisplayName || ''}</Fragment>;
 };
 
-const renderSyncColumn = (row: PackageRow): React.JSX.Element => <SyncStatusVisual syncStatus={row.syncStatus} />;
+const renderSyncColumn = (row: PackageRow): JSX.Element => <SyncStatusVisual syncStatus={row.syncStatus} />;
 
 const getTableColumns = (
   includeRepositoryColumn: boolean,

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import { cloneDeep } from 'lodash';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Deployment, DeploymentMetadata, DeploymentStrategy } from '../../../../../types/Deployment';
 import { Container, PodSecurityContext, Volume } from '../../../../../types/Pod';
 import { LabelSelector } from '../../../../../types/Selectors';

@@ -15,7 +15,7 @@
  */
 
 import { groupBy, uniq } from 'lodash';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { PackageRevision } from '../../../types/PackageRevision';
 import { Repository } from '../../../types/Repository';
 import { PackageSummary } from '../../../utils/packageSummary';

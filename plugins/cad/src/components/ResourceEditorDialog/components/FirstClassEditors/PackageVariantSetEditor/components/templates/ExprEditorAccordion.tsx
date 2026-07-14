@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@mui/material';
-import React, { useState, useRef } from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { useState, useRef } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import { toLowerCase } from '../../../../../../../utils/string';

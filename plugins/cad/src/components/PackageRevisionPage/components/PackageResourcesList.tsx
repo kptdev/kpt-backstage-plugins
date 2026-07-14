@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@mui/styles';
 import { cloneDeep, uniq } from 'lodash';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { KubernetesResource } from '../../../types/KubernetesResource';
 import { PackageRevisionResourcesMap } from '../../../types/PackageRevisionResource';
 import {
@@ -31,6 +30,7 @@ import {
 import { dumpYaml, loadYaml } from '../../../utils/yaml';
 import { PackageRevisionPageMode } from '../PackageRevisionPage';
 import { PackageRevisionResourcesTable, ResourcesTableMode } from './PackageRevisionResourcesTable';
+import { css } from '@emotion/css';
 
 type PackageResourcesListProps = {
   resourcesMap: PackageRevisionResourcesMap;
@@ -121,10 +121,10 @@ const addDiffDetails = (allResources: ResourceRow[], baseResources: PackageResou
   }
 };
 
-const useStyles = makeStyles({
-  alert: {
+const useStyles = () => ({
+  alert: css({
     marginBottom: '24px',
-  },
+  }),
 });
 
 export const PackageResourcesList = ({

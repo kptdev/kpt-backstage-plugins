@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { clone } from 'lodash';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';
 import {
   PackageVariantSetRepositorySelector,

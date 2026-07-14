@@ -15,10 +15,10 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { clone } from 'lodash';
-import React, { Fragment, useMemo, useRef } from 'react';
+import { Fragment, useMemo, useRef } from 'react';
 import { EnvFromSource } from '../../../../../../../types/Pod';
 import { getDeployableResources, PackageResource } from '../../../../../../../utils/packageRevisionResources';
 import { buildSelectItemsFromList } from '../../../../../../../utils/selectItem';

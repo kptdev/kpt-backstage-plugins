@@ -16,8 +16,7 @@
 
 import { Content, Header, Page, Progress } from '@backstage/core-components';
 import { configApiRef, useApi } from '@backstage/core-plugin-api';
-import { Alert } from '@mui/material';
-import React from 'react';
+import Alert from '@mui/material/Alert';
 import { Route, Routes } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../apis';
@@ -67,7 +66,7 @@ export const LandingPage = () => {
 
   const { loading, error } = useAsync(() => loadFeatures(api), []);
 
-  const getContent = (): React.JSX.Element => {
+  const getContent = (): JSX.Element => {
     if (loading) {
       return <Progress />;
     } else if (error) {

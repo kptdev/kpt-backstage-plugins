@@ -18,7 +18,6 @@ import { renderWithEffects } from '@backstage/test-utils';
 import { RenderResult } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { noop } from 'lodash';
-import React from 'react';
 import { findSelectInput, findSelectOption, findTextFieldInput } from './testUtils/findEditorElement';
 import { PxeConfiguration } from '../types/PxeConfiguration.types';
 import { PxeConfigurationFactory } from '../configuration';

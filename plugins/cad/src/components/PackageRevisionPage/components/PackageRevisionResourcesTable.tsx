@@ -16,12 +16,15 @@
 
 import { Table, TableColumn } from '@backstage/core-components';
 import { errorApiRef, useApi } from '@backstage/core-plugin-api';
-import { Button, Divider, Menu, MenuItem } from '@mui/material';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { cloneDeep, startCase } from 'lodash';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, MouseEvent, useRef, useState } from 'react';
 import { KubernetesKeyValueObject, KubernetesResource } from '../../../types/KubernetesResource';
 import { PackageResource } from '../../../utils/packageRevisionResources';
 import { dumpYaml } from '../../../utils/yaml';
@@ -74,10 +77,10 @@ export const PackageRevisionResourcesTable = ({
   onUpdatedResource,
 }: PackageRevisionResourcesTableProps) => {
   const [openDialog, setOpenDialog] = useState<Dialog>(Dialog.NONE);
-  const selectedDialogResource = useRef<DialogResource>(undefined);
-  const selectedDialogOriginalResource = useRef<DialogResource>(undefined);
+  const selectedDialogResource = useRef<DialogResource>();
+  const selectedDialogOriginalResource = useRef<DialogResource>();
 
-  const [addResourceAnchorEl, setAddResourceAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [addResourceAnchorEl, setAddResourceAnchorEl] = useState<null | HTMLElement>(null);
   const addResourceMenuOpen = Boolean(addResourceAnchorEl);
 
   const resources = allResources.filter(resource => resource.component === component);
@@ -175,7 +178,7 @@ export const PackageRevisionResourcesTable = ({
     }
   };
 
-  const renderLocalConfigColumn = (resourceRow: ResourceRow): React.JSX.Element | null => {
+  const renderLocalConfigColumn = (resourceRow: ResourceRow): JSX.Element | null => {
     if (resourceRow.isLocalConfigResource) {
       return (
         <Fragment>
@@ -189,8 +192,8 @@ export const PackageRevisionResourcesTable = ({
     return null;
   };
 
-  const renderOptionsColumn = (resourceRow: ResourceRow): React.JSX.Element[] => {
-    const options: React.JSX.Element[] = [];
+  const renderOptionsColumn = (resourceRow: ResourceRow): JSX.Element[] => {
+    const options: JSX.Element[] = [];
 
     if (isEditMode && !resourceRow.isDeleted) {
       if (resourceRow.filename !== 'Kptfile') {
@@ -205,7 +208,7 @@ export const PackageRevisionResourcesTable = ({
     return options;
   };
 
-  const renderDiffColumn = (row: ResourceRow): React.JSX.Element | null => {
+  const renderDiffColumn = (row: ResourceRow): JSX.Element | null => {
     if (row.diffSummary) {
       return (
         <Button
@@ -214,7 +217,7 @@ export const PackageRevisionResourcesTable = ({
             position: 'absolute',
             transform: 'translateY(-50%)',
           }}
-          onClick={(e: { stopPropagation: () => void; }) => {
+          onClick={e => {
             e.stopPropagation();
             openResourceDialog(Dialog.DIFF_VIEWER, row.currentResource, row.originalResource);
           }}
@@ -293,7 +296,7 @@ export const PackageRevisionResourcesTable = ({
     return newResource;
   };
 
-  const onAddResourceMenuOpenClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const onAddResourceMenuOpenClick = (event: MouseEvent<HTMLButtonElement>): void => {
     setAddResourceAnchorEl(event.currentTarget);
   };
 
@@ -318,7 +321,7 @@ export const PackageRevisionResourcesTable = ({
     addResource(gvk);
   };
 
-  const renderAddResourceButtonGroup = (): React.JSX.Element => {
+  const renderAddResourceButtonGroup = (): JSX.Element => {
     if (isEditMode) {
       return (
         <div style={{ marginTop: '16px' }}>

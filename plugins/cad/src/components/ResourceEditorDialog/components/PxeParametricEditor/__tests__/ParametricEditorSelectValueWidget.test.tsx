@@ -17,7 +17,6 @@
 import { renderWithEffects } from '@backstage/test-utils';
 import { RenderResult } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import React from 'react';
 import { PxeParametricEditor } from '../PxeParametricEditor';
 import { PxeConfiguration, PxeValueOption, PxeValueType } from '../types/PxeConfiguration.types';
 import { PxeConfigurationFactory } from '../configuration';

@@ -15,7 +15,6 @@
  */
 
 import { StatusError, StatusOK, StatusPending, Table, TableColumn } from '@backstage/core-components';
-import React from 'react';
 import { Condition, ConditionStatus } from '../../../types/PackageRevision';
 import { toLowerCase } from '../../../utils/string';
 
@@ -27,7 +26,7 @@ type ConditionRow = Condition & {
   id: string;
 };
 
-const renderStatusColumn = (row: ConditionRow): React.JSX.Element => {
+const renderStatusColumn = (row: ConditionRow): JSX.Element => {
   const status = <span style={{ fontWeight: 'normal' }}>{toLowerCase(row.status)}</span>;
 
   switch (row.status) {

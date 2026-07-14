@@ -15,8 +15,8 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@mui/material';
-import React, { Fragment, useRef, useState, useEffect } from 'react';
+import TextField from '@mui/material/TextField';
+import { Fragment, useRef, useState, useEffect } from 'react';
 import { useApi } from '@backstage/core-plugin-api';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../../../../../../apis';

@@ -15,16 +15,16 @@
  */
 
 import { get, isEqual } from 'lodash';
-import React, { useContext } from 'react';
+import { FC, memo, useContext } from 'react';
 import { PxeValue } from '../../types/PxeParametricEditor.types';
 import { PxeParametricEditorNodeProps } from '../../PxeParametricEditorNode';
 import { PxeResourceContext } from '../../PxeResourceContext';
 import { PxeWidgetEntry } from '../../types/PxeConfiguration.types';
 
 export const withCurrentValues = (
-  Component: React.FC<PxeParametricEditorNodeProps & { readonly currentValues: PxeValue[] }>,
+  Component: FC<PxeParametricEditorNodeProps & { readonly currentValues: PxeValue[] }>,
 ) => {
-  const MemoizedComponent = React.memo(Component, isEqual);
+  const MemoizedComponent = memo(Component, isEqual);
   return (props: PxeParametricEditorNodeProps) => {
     const { valueDescriptors } = props.configurationEntry as PxeWidgetEntry;
     const resource = useContext(PxeResourceContext);

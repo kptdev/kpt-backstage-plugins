@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-import { Tab as MUITab, Tabs as MUITabs } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import React, { ReactElement, ReactNode } from 'react';
+import MUITab from '@mui/material/Tab';
+import MUITabs from '@mui/material/Tabs';
+import { ReactElement, ReactNode, SyntheticEvent, useState } from 'react';
+import { css } from '@emotion/css';
+import { useTheme } from '@mui/material/styles';
 
 type TabsProps = {
   tabs: readonly {
@@ -26,17 +28,17 @@ type TabsProps = {
   }[];
 };
 
-const useStyles = makeStyles(theme => ({
-  tabs: {
+const useStyles = () => { const theme = useTheme() as any; return ({
+  tabs: css({
     backgroundColor: theme.palette.background.paper,
-  },
-  tabsIndicator: {
+  }),
+  tabsIndicator: css({
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: theme.palette.tabbar.indicator,
+    backgroundColor: theme.palette.tabbar?.indicator ?? theme.palette.primary.main,
     height: theme.spacing(0.5),
-  },
-  tab: {
+  }),
+  tab: css({
     width: '130px',
     minWidth: '130px',
     height: '64px',
@@ -44,26 +46,26 @@ const useStyles = makeStyles(theme => ({
     marginRight: '24px',
     fontWeight: 'bold',
     fontSize: theme.typography.pxToRem(13),
-    color: theme.palette.textSubtle,
-  },
-  content: {
+    color: theme.palette.textSubtle ?? theme.palette.text.secondary,
+  }),
+  content: css({
     padding: '24px',
-  },
-}));
+  }),
+}); };
 
 export const Tabs = (props: TabsProps) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
-  const handleChange = (_event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (_event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
     <div>
-      <MUITabs classes={{ root: classes.tabs, indicator: classes.tabsIndicator }} value={value} onChange={handleChange}>
+      <MUITabs className={classes.tabs} TabIndicatorProps={{ className: classes.tabsIndicator }} value={value} onChange={handleChange}>
         {props.tabs.map(({ label, icon }, index) => (
-          <MUITab key={index} classes={{ root: classes.tab }} label={label ?? ''} icon={icon} />
+          <MUITab key={index} className={classes.tab} label={label ?? ''} icon={icon} />
         ))}
       </MUITabs>
       {props.tabs.map(({ content }, index) => (

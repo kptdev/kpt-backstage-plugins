@@ -15,8 +15,8 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@mui/material';
-import React, { Fragment, useEffect, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import { Fragment, useEffect, useState } from 'react';
 import {
   ApplyReplacement,
   ApplyReplacementMetadata,

@@ -23,10 +23,10 @@ import {
   SimpleStepperStep,
 } from '@backstage/core-components';
 import { useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { TextField, Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { kebabCase, startCase } from 'lodash';
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, Fragment, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { configAsDataApiRef } from '../../apis';
 import { repositoryRouteRef } from '../../routes';
@@ -52,15 +52,16 @@ import {
 import { getBasicAuthSecret, isBasicAuthSecret } from '../../utils/secret';
 import { RadioGroup, RadioOption, Select } from '../Controls';
 import { LandingPageLink } from '../Links';
+import { css } from '@emotion/css';
 
-const useStyles = makeStyles(() => ({
-  stepContent: {
+const useStyles = () => ({
+  stepContent: css({
     maxWidth: '600px',
     '& > *': {
       marginTop: '16px',
     },
-  },
-}));
+  }),
+});
 
 enum AuthenticationType {
   NONE = 'None',
@@ -239,7 +240,7 @@ export const RegisterRepositoryPage = () => {
     setState(s => ({ ...s, ...toSet }));
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const target = event.target;
     updateStateValue(target.name, target.value);
   };
