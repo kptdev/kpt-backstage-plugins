@@ -29,6 +29,13 @@
       "plugins/*"
     ]
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^monaco-editor$": "<rootDir>/__mocks__/monaco-editor.ts",
+      "^monaco-editor/(.*)$": "<rootDir>/__mocks__/monaco-editor.ts",
+      "^@monaco-editor/react$": "<rootDir>/__mocks__/@monaco-editor/react.js"
+    }
+  },
   "devDependencies": {
     "@backstage/cli": "^0.36.3",
     "@backstage/cli-defaults": "^0.1.3",
