@@ -5,6 +5,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "lib": ["ES2021"],
+    "moduleResolution": "node",
     "outDir": "dist-types",
     "rootDir": "."
   }
