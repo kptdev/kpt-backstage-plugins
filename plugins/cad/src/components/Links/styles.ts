@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import { css } from '@emotion/css';
 
 export const useLinkStyles = () => ({

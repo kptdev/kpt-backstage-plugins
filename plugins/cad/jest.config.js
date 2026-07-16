@@ -2,12 +2,8 @@ const path = require('path');
 
 module.exports = {
   rootDir: path.resolve(__dirname, 'src'),
-  testEnvironment: require.resolve(
-    '@backstage/cli-module-test-jest/config/jest-environment-jsdom',
-  ),
-  runtime: require.resolve(
-    '@backstage/cli-module-test-jest/config/jestCachingModuleLoader',
-  ),
+  testEnvironment: require.resolve('@backstage/cli-module-test-jest/config/jest-environment-jsdom'),
+  runtime: require.resolve('@backstage/cli-module-test-jest/config/jestCachingModuleLoader'),
   displayName: '@kpt/backstage-plugin-cad',
   setupFiles: [path.resolve(__dirname, '../../jest.setup.js')],
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
@@ -39,5 +35,7 @@ module.exports = {
       require.resolve('@backstage/cli-module-test-jest/config/jestFileTransform.js'),
     '\\.(yaml)$': require.resolve('@backstage/cli-module-test-jest/config/jestYamlTransform'),
   },
-  transformIgnorePatterns: ['/node_modules/(?:@material-ui|ajv|core-js|jest-.*|jsdom|knex|react|react-dom|highlight\\.js|prismjs|json-schema|react-use/lib|typescript)/'],
+  transformIgnorePatterns: [
+    '/node_modules/(?:@material-ui|ajv|core-js|jest-.*|jsdom|knex|react|react-dom|highlight\\.js|prismjs|json-schema|react-use/lib|typescript)/',
+  ],
 };

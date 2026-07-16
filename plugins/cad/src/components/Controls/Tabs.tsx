@@ -28,30 +28,33 @@ type TabsProps = {
   }[];
 };
 
-const useStyles = () => { const theme = useTheme() as any; return ({
-  tabs: css({
-    backgroundColor: theme.palette.background.paper,
-  }),
-  tabsIndicator: css({
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: theme.palette.tabbar?.indicator ?? theme.palette.primary.main,
-    height: theme.spacing(0.5),
-  }),
-  tab: css({
-    width: '130px',
-    minWidth: '130px',
-    height: '64px',
-    marginLeft: '24px',
-    marginRight: '24px',
-    fontWeight: 'bold',
-    fontSize: theme.typography.pxToRem(13),
-    color: theme.palette.textSubtle ?? theme.palette.text.secondary,
-  }),
-  content: css({
-    padding: '24px',
-  }),
-}); };
+const useStyles = () => {
+  const theme = useTheme() as any;
+  return {
+    tabs: css({
+      backgroundColor: theme.palette.background.paper,
+    }),
+    tabsIndicator: css({
+      display: 'flex',
+      justifyContent: 'center',
+      backgroundColor: theme.palette.tabbar?.indicator ?? theme.palette.primary.main,
+      height: theme.spacing(0.5),
+    }),
+    tab: css({
+      width: '130px',
+      minWidth: '130px',
+      height: '64px',
+      marginLeft: '24px',
+      marginRight: '24px',
+      fontWeight: 'bold',
+      fontSize: theme.typography.pxToRem(13),
+      color: theme.palette.textSubtle ?? theme.palette.text.secondary,
+    }),
+    content: css({
+      padding: '24px',
+    }),
+  };
+};
 
 export const Tabs = (props: TabsProps) => {
   const classes = useStyles();
@@ -63,7 +66,12 @@ export const Tabs = (props: TabsProps) => {
 
   return (
     <div>
-      <MUITabs className={classes.tabs} TabIndicatorProps={{ className: classes.tabsIndicator }} value={value} onChange={handleChange}>
+      <MUITabs
+        className={classes.tabs}
+        TabIndicatorProps={{ className: classes.tabsIndicator }}
+        value={value}
+        onChange={handleChange}
+      >
         {props.tabs.map(({ label, icon }, index) => (
           <MUITab key={index} className={classes.tab} label={label ?? ''} icon={icon} />
         ))}

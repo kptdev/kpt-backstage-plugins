@@ -37,8 +37,12 @@ export const PxeParametricEditorTabs: FC<PxeParametricEditorTabsProps> = ({ tabs
   const classes = useStyles();
   return (
     <div>
-      <Tabs className={classes.tabs} value={value} onChange={handleChange}
-        TabIndicatorProps={{ className: classes.indicator }}>
+      <Tabs
+        className={classes.tabs}
+        value={value}
+        onChange={handleChange}
+        TabIndicatorProps={{ className: classes.indicator }}
+      >
         {tabs.map(({ name }, index) => (
           <Tab className={`${classes.tab} ${value === index ? classes.tabSelected : ''}`} key={index} label={name} />
         ))}
@@ -52,7 +56,9 @@ export const PxeParametricEditorTabs: FC<PxeParametricEditorTabsProps> = ({ tabs
   );
 };
 
-const useStyles = () => { const theme = useTheme(); return {
+const useStyles = () => {
+  const theme = useTheme();
+  return {
     tabs: css({
       marginBottom: '24px',
     }),
@@ -69,4 +75,5 @@ const useStyles = () => { const theme = useTheme(); return {
     tabSelected: css({
       color: PXE_COLOR_ACCENT,
     }),
-  }; };
+  };
+};

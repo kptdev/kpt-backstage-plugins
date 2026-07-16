@@ -36,7 +36,7 @@ export const singleLineTextWidgetConfigurationEntry = ({
 
   return {
     type: PxeNodeType.SingleLineText,
-    valueDescriptors: [{ path, type, isRequired: path === '$key' ? true : isRequired ?? false, display: { name } }],
+    valueDescriptors: [{ path, type, isRequired: path === '$key' ? true : (isRequired ?? false), display: { name } }],
     textFilter,
   };
 };

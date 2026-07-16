@@ -33,24 +33,27 @@ type EditorAccordionProps = {
   children: ReactNode;
 };
 
-const useStyles = () => { const theme = useTheme(); return ({
-  title: css({
-    fontSize: theme.typography.pxToRem(15),
-    width: '30%',
-    flexShrink: 0,
-  }),
-  description: css({
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  }),
-  accordionDetails: css({
-    display: 'block',
-    width: '100%',
-    '& > *:not(:last-child)': {
-      marginBottom: '12px',
-    },
-  }),
-}); };
+const useStyles = () => {
+  const theme = useTheme();
+  return {
+    title: css({
+      fontSize: theme.typography.pxToRem(15),
+      width: '30%',
+      flexShrink: 0,
+    }),
+    description: css({
+      fontSize: theme.typography.pxToRem(15),
+      color: theme.palette.text.secondary,
+    }),
+    accordionDetails: css({
+      display: 'block',
+      width: '100%',
+      '& > *:not(:last-child)': {
+        marginBottom: '12px',
+      },
+    }),
+  };
+};
 
 export const EditorAccordion = ({ id, title, description, state, children, ...otherProps }: EditorAccordionProps) => {
   const classes = useStyles();

@@ -26,28 +26,25 @@ type PxeParametricEditorNodeListProps = {
   readonly isInRosterItem: boolean;
 };
 
-export const PxeParametricEditorNodeList: FC<PxeParametricEditorNodeListProps> = memo(
-  ({ entries, isInRosterItem }) => {
-    const classes = useNodeListClasses();
-    return (
-      <div className={classes.nodesContainer}>
-        {entries.map((entry, index) => {
-          const isFirstNode = index === 0;
-          const isLastNode = index === entries.length - 1;
-          return [
-            <PxeParametricEditorNode
-              key={`node-${index}`}
-              configurationEntry={entry}
-              listPositionInfo={{ isInRosterItem, isFirstNode, isLastNode }}
-            />,
-            !isLastNode && <NodeSeparatorRail key={`separator-${index}`} isInRosterItem={isInRosterItem} />,
-          ];
-        })}
-      </div>
-    );
-  },
-  isEqual,
-);
+export const PxeParametricEditorNodeList: FC<PxeParametricEditorNodeListProps> = memo(({ entries, isInRosterItem }) => {
+  const classes = useNodeListClasses();
+  return (
+    <div className={classes.nodesContainer}>
+      {entries.map((entry, index) => {
+        const isFirstNode = index === 0;
+        const isLastNode = index === entries.length - 1;
+        return [
+          <PxeParametricEditorNode
+            key={`node-${index}`}
+            configurationEntry={entry}
+            listPositionInfo={{ isInRosterItem, isFirstNode, isLastNode }}
+          />,
+          !isLastNode && <NodeSeparatorRail key={`separator-${index}`} isInRosterItem={isInRosterItem} />,
+        ];
+      })}
+    </div>
+  );
+}, isEqual);
 
 const NodeSeparatorRail: FC<{ isInRosterItem: boolean }> = ({ isInRosterItem }) => {
   const classes = useNodeSeparatorClasses();

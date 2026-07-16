@@ -82,9 +82,10 @@ configAsData:
 HTTP Status Code 413 will be returned for any requests exceeding this size.
 
 Valid values:
-| Values | Description |
-| ------ | ----------- |
-| none | Use no GitOps delivery tool |
+
+| Values      | Description                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| none        | Use no GitOps delivery tool                                                                                               |
 | config-sync | Use [Config Sync](https://github.com/GoogleContainerTools/kpt-config-sync). Config Sync must be installed on the cluster. |
 
 `clusterLocatorMethod` determines where to receive the cluster configuration
@@ -93,30 +94,33 @@ from
 `clusterLocatorMethod.type` determines how the cluster will be located
 
 Valid values:
-| Values | Description |
-| ------ | ----------- |
+
+| Values          | Description                                                         |
+| --------------- | ------------------------------------------------------------------- |
 | current-context | Connect to the cluster as defined by the kubeconfig current context |
-| in-cluster | Connect to the same cluster that Backstage is running in |
+| in-cluster      | Connect to the same cluster that Backstage is running in            |
 
 `clusterLocatorMethod.authProvider` determines how the client will authenticate
 with the cluster.
 
 Valid values:
-| Values | Description |
-| ------ | ----------- |
-| current-context | Authenticate to the cluster with the user in the kubeconfig current context |
-| google | Authenticate to the cluster using the user's access token token from the [Google auth provider](https://backstage.io/docs/auth/google/provider) |
-| oidc | Authenticate to the cluster using OIDC (OpenID Connect) |
-| service-account | Authenticate to the cluster using a Kubernetes service account token |
+
+| Values          | Description                                                                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| current-context | Authenticate to the cluster with the user in the kubeconfig current context                                                                     |
+| google          | Authenticate to the cluster using the user's access token token from the [Google auth provider](https://backstage.io/docs/auth/google/provider) |
+| oidc            | Authenticate to the cluster using OIDC (OpenID Connect)                                                                                         |
+| service-account | Authenticate to the cluster using a Kubernetes service account token                                                                            |
 
 `clusterLocatorMethod.oidcTokenProvider` determines which configured [Backstage auth provider](https://backstage.io/docs/auth/) to
 use to authenticate to the cluster with. This field is required with the `oidc` auth provider.
 
 Valid values:
-| Values | Description |
-| ------ | ----------- |
+
+| Values | Description                                                                                                 |
+| ------ | ----------------------------------------------------------------------------------------------------------- |
 | google | Authenticate to the cluster with the [Google auth provider](https://backstage.io/docs/auth/google/provider) |
-| okta | Authenticate to the cluster with the [Okta auth provider](https://backstage.io/docs/auth/okta/provider) |
+| okta   | Authenticate to the cluster with the [Okta auth provider](https://backstage.io/docs/auth/okta/provider)     |
 
 `clusterLocatorMethod.serviceAccountToken` defines the service account token to be used with the `service-account` auth provider. You can get the service account token with the following command:
 

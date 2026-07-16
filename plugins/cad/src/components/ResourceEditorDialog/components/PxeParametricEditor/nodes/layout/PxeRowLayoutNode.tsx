@@ -22,25 +22,22 @@ import { useDiagnostics } from '../../PxeDiagnosticsContext';
 import { PXE_INPUT_WIDTH } from '../../PxeSharedStyles';
 import { css } from '@emotion/css';
 
-export const PxeRowLayoutNode: FC<PxeParametricEditorNodeProps> = memo(
-  ({ configurationEntry, listPositionInfo }) => {
-    useDiagnostics(configurationEntry);
-    const { entries } = configurationEntry as PxeRowLayoutEntry;
+export const PxeRowLayoutNode: FC<PxeParametricEditorNodeProps> = memo(({ configurationEntry, listPositionInfo }) => {
+  useDiagnostics(configurationEntry);
+  const { entries } = configurationEntry as PxeRowLayoutEntry;
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-      <div className={classes.rowContainer}>
-        {entries.map((entry, index) => (
-          <div className={classes.rowItem} key={`${index}`}>
-            <PxeParametricEditorNode configurationEntry={entry} listPositionInfo={listPositionInfo} />
-          </div>
-        ))}
-      </div>
-    );
-  },
-  isEqual,
-);
+  return (
+    <div className={classes.rowContainer}>
+      {entries.map((entry, index) => (
+        <div className={classes.rowItem} key={`${index}`}>
+          <PxeParametricEditorNode configurationEntry={entry} listPositionInfo={listPositionInfo} />
+        </div>
+      ))}
+    </div>
+  );
+}, isEqual);
 
 const useStyles = () => ({
   rowContainer: css({

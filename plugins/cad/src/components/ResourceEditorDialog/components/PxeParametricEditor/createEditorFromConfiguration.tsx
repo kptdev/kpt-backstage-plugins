@@ -26,12 +26,11 @@ export type PxeConfiguredEditorProps = {
 
 export const createEditorFromConfiguration =
   (configuration: PxeConfiguration, diagnosticsReporter?: PxeDiagnosticsReporter): FC<PxeConfiguredEditorProps> =>
-  ({ yamlText, onResourceChange }) =>
-    (
-      <PxeParametricEditor
-        configuration={configuration}
-        yamlText={yamlText}
-        onResourceChange={onResourceChange}
-        __diagnosticsReporter={diagnosticsReporter}
-      />
-    );
+  ({ yamlText, onResourceChange }) => (
+    <PxeParametricEditor
+      configuration={configuration}
+      yamlText={yamlText}
+      onResourceChange={onResourceChange}
+      __diagnosticsReporter={diagnosticsReporter}
+    />
+  );
