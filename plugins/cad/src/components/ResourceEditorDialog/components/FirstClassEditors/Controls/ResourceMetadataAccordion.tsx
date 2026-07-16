@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
-import React, { Fragment, useRef, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import { Fragment, useRef, useState } from 'react';
 import { KubernetesKeyValueObject } from '../../../../../types/KubernetesResource';
 import { AccordionState, EditorAccordion } from './EditorAccordion';
 import { KeyValueEditorAccordion } from './KeyValueEditorAccordion';

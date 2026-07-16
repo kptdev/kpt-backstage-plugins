@@ -15,13 +15,13 @@
  */
 
 import { StructuredMetadataTable } from '@backstage/core-components';
-import { makeStyles } from '@material-ui/core';
-import { ClassNameMap } from '@material-ui/core/styles/withStyles';
+import { ClassNameMap } from '@mui/material/styles';
 import { diffArrays } from 'diff';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { KubernetesResource } from '../../../../../types/KubernetesResource';
 import { removeInternalKptAnnotations } from '../../../../../utils/kubernetesResource';
 import { loadYaml } from '../../../../../utils/yaml';
+import { css } from '@emotion/css';
 
 export type Metadata = {
   [key: string]: any;
@@ -36,21 +36,21 @@ type StructuredMetadataProps = {
   showDiff?: boolean;
 };
 
-const useStyles = makeStyles({
-  added: {
+const useStyles = () => ({
+  added: css({
     color: 'green',
     '& > span:first-child': {
       width: '10px',
       display: 'inline-block',
     },
-  },
-  removed: {
+  }),
+  removed: css({
     color: 'red',
     '& > span:first-child': {
       width: '10px',
       display: 'inline-block',
     },
-  },
+  }),
 });
 
 const normalizeMetadata = (metadata: Metadata): void => {

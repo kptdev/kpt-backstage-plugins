@@ -24,6 +24,6 @@ export const stringifyYaml = <T extends object>(yamlObject: T): string =>
   dump(yamlObject, {
     // TODO The fact of hard-setting of formatting options leads to multiple changes in the editor output.
     // Solution probably requires switching to "yaml" package.
-    noArrayIndent: true,
-    quotingType: '"',
+    seqNoIndent: true,
+    quoteStyle: 'double',
   });

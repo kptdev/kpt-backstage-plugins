@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
-import React, { Fragment } from 'react';
+import TextField from '@mui/material/TextField';
+import { Fragment } from 'react';
 import { AccordionState, EditorAccordion } from './EditorAccordion';
 
 type OnValueUpdated = (value: string) => void;

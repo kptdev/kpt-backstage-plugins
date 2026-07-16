@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Button, makeStyles } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import React, { useContext, useState } from 'react';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import { FC, useContext, useState } from 'react';
 import { PxeParametricEditorNodeProps } from '../../../PxeParametricEditorNode';
 import { PxeRosterWidgetEntry, PxeValueType } from '../../../types/PxeConfiguration.types';
 import { PxeResourceChangeRequest, PxeValue } from '../../../types/PxeParametricEditor.types';
@@ -32,6 +32,7 @@ import { PXE_COLOR_ACCENT, PXE_COLOR_BORDER_DEFAULT, PXE_RAIL_BAR_HEIGHT_BUTTON 
 import { PxeRosterItem } from './PxeRosterItem';
 import { PxeRosterHeader } from './PxeRosterHeader';
 import { PxeRosterBranch } from './PxeRosterBranch';
+import { css } from '@emotion/css';
 
 type RosterItemResourceChunk = {
   readonly $key: string;
@@ -41,7 +42,7 @@ type RosterItemResourceChunk = {
 type RosterValueType = PxeValueType.Object | PxeValueType.Array;
 
 // TODO Rework roster - instead of being index-based use temp ids for items.
-export const PxeRosterWidgetNode: React.FC<PxeParametricEditorNodeProps> = withCurrentValues(
+export const PxeRosterWidgetNode: FC<PxeParametricEditorNodeProps> = withCurrentValues(
   ({ configurationEntry, listPositionInfo: { isInRosterItem, isLastNode }, currentValues: [currentValue] }) => {
     useDiagnostics(configurationEntry);
     const handleResourceChangeRequest = useContext(PxeResourceChangeRequestContext);
@@ -145,12 +146,12 @@ const valueFromItemChunks = (
     ? Object.fromEntries(itemChunks.map(itemChunk => [itemChunk.$key, itemChunk.$value]))
     : itemChunks.map(itemChunk => itemChunk.$value);
 
-const useStyles = makeStyles(() => ({
-  addButton: {
+const useStyles = () => ({
+  addButton: css({
     height: '40px',
     borderRadius: '20px',
     borderColor: PXE_COLOR_BORDER_DEFAULT,
     color: PXE_COLOR_ACCENT,
     textTransform: 'none',
-  },
-}));
+  }),
+});

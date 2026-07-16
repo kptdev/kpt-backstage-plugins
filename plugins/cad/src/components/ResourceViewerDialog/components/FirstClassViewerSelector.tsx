@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import { getAPIServiceStructuredMetadata } from './FirstClassViewers/StructuredMetadata/resources/apiService';
 import { getApplyReplacementsStructuredMetadata } from './FirstClassViewers/StructuredMetadata/resources/applyReplacements';
 import { getClusterIssuerStructuredMetadata } from './FirstClassViewers/StructuredMetadata/resources/clusterIssuer';

@@ -16,10 +16,11 @@
 
 import { Breadcrumbs, ContentHeader, Progress } from '@backstage/core-components';
 import { errorApiRef, useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles, Typography } from '@material-ui/core';
-import Alert, { Color } from '@material-ui/lab/Alert';
+import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import { AlertColor } from '@mui/material/Alert';
 import { cloneDeep, uniq } from 'lodash';
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../apis';
@@ -74,6 +75,7 @@ import { RelatedPackagesContent } from './components/RelatedPackagesContent';
 import { RelatedTabContent } from './components/RelatedTabContent';
 import { AlertMessage, ResourcesTabContent } from './components/ResourcesTabContent';
 import { processUpdatedResourcesMap } from './updatedResourcesMap/processUpdatedResourcesMap';
+import { css } from '@emotion/css';
 
 export enum PackageRevisionPageMode {
   EDIT = 'edit',
@@ -89,8 +91,8 @@ type RenderErrorMessage = {
   message: string;
 };
 
-const useStyles = makeStyles({
-  packageRevisionOptions: {
+const useStyles = () => ({
+  packageRevisionOptions: css({
     display: 'inherit',
     '& > *': {
       marginTop: 'auto',
@@ -98,14 +100,14 @@ const useStyles = makeStyles({
         marginLeft: '10px',
       },
     },
-  },
-  syncStatusBanner: {
+  }),
+  syncStatusBanner: css({
     padding: '2px 16px',
-  },
-  messageBanner: {
+  }),
+  messageBanner: css({
     whiteSpace: 'break-spaces',
     marginBottom: '16px',
-  },
+  }),
 });
 
 const getDownstreamUpgradesAvailableMessage = (
@@ -566,7 +568,7 @@ export const PackageRevisionPage = ({ mode }: PackageRevisionPageProps) => {
 
   const getCurrentSyncStatus = (): JSX.Element | null => {
     if (syncStatus) {
-      const getAlertSeverity = (thisSyncStatus: SyncStatus): Color => {
+      const getAlertSeverity = (thisSyncStatus: SyncStatus): AlertColor => {
         switch (thisSyncStatus.state) {
           case SyncStatusState.ERROR:
           case SyncStatusState.STALLED:

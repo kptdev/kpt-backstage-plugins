@@ -15,10 +15,11 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { clone } from 'lodash';
-import React, { Fragment, useMemo, useRef } from 'react';
+import { Fragment, useMemo, useRef } from 'react';
 import { ConfigMap } from '../../../../../../../types/ConfigMap';
 import {
   ConfigMapKeySelector,

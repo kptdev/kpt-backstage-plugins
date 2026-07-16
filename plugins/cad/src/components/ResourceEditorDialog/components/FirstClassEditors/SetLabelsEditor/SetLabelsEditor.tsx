@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { KubernetesKeyValueObject } from '../../../../../types/KubernetesResource';
 import { SetLabels, SetLabelsMetadata } from '../../../../../types/SetLabels';
 import { dumpYaml, loadYaml } from '../../../../../utils/yaml';

@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
 import { isEqual } from 'lodash';
-import React from 'react';
+import { FC, memo } from 'react';
 import { PxeValueType } from '../../../types/PxeConfiguration.types';
 import { PXE_COLOR_BACKGROUND_WHITE, PXE_COLOR_RAIL } from '../../../PxeSharedStyles';
+import { css } from '@emotion/css';
 
 type PxeRosterHeaderProps = {
   readonly name: string;
   readonly rosterValueType: PxeValueType.Object | PxeValueType.Array;
 };
 
-export const PxeRosterHeader: React.FC<PxeRosterHeaderProps> = React.memo(({ name, rosterValueType }) => {
+export const PxeRosterHeader: FC<PxeRosterHeaderProps> = memo(({ name, rosterValueType }) => {
   const classes = useStyles();
 
   return (
@@ -36,8 +36,8 @@ export const PxeRosterHeader: React.FC<PxeRosterHeaderProps> = React.memo(({ nam
   );
 }, isEqual);
 
-const useStyles = makeStyles(() => ({
-  header: {
+const useStyles = () => ({
+  header: css({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -47,13 +47,13 @@ const useStyles = makeStyles(() => ({
     borderRadius: '16px',
     border: `solid 1px ${PXE_COLOR_RAIL}`,
     backgroundColor: PXE_COLOR_BACKGROUND_WHITE,
-  },
-  nameLabel: {
+  }),
+  nameLabel: css({
     fontWeight: 700,
-  },
-  typeLabel: {
+  }),
+  typeLabel: css({
     marginLeft: '12px',
     fontFamily: 'Lucida Console, monospace',
     fontWeight: 700,
-  },
-}));
+  }),
+});

@@ -15,9 +15,10 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import React, { Fragment, useEffect, useMemo, useState } from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import AddIcon from '@mui/icons-material/Add';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { RoleBinding, RoleBindingMetadata, RoleBindingSubject } from '../../../../../types/RoleBinding';
 import { PackageResource } from '../../../../../utils/packageRevisionResources';
 import { sortByLabel } from '../../../../../utils/selectItem';

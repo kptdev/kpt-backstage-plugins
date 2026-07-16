@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { PackageVariantSetInjectors, PackageVariantSetTempleate } from '../../../../../../../types/PackageVariantSet';
 import { PackageResource } from '../../../../../../../utils/packageRevisionResources';
 import { Select } from '../../../../../../Controls';

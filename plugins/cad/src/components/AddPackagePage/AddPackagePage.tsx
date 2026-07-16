@@ -23,9 +23,10 @@ import {
   SimpleStepperStep,
 } from '@backstage/core-components';
 import { errorApiRef, useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles, TextField, Typography } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAsync from 'react-use/lib/useAsync';
 import { ConfigAsDataApi, configAsDataApiRef } from '../../apis';
@@ -63,6 +64,7 @@ import { emptyIfUndefined, toLowerCase } from '../../utils/string';
 import { dumpYaml, loadYaml } from '../../utils/yaml';
 import { Checkbox, Select } from '../Controls';
 import { LandingPageLink, PackageLink, PackagesLink, RepositoryLink } from '../Links';
+import { css } from '@emotion/css';
 import {
   applyNamespaceState,
   getNamespaceDefaultState,
@@ -76,21 +78,21 @@ import {
   ValidateResourcesState,
 } from './utils/validateResources';
 
-const useStyles = makeStyles(() => ({
-  stepContent: {
+const useStyles = () => ({
+  stepContent: css({
     maxWidth: '600px',
     '& > *': {
       marginTop: '16px',
     },
-  },
-  checkboxConditionalElements: {
+  }),
+  checkboxConditionalElements: css({
     marginLeft: '32px',
     marginTop: '8px',
     '& > *': {
       marginTop: '16px',
     },
-  },
-}));
+  }),
+});
 
 export enum AddPackagePageAction {
   ADD = 'add',

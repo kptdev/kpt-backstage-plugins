@@ -16,22 +16,22 @@
 
 import { Breadcrumbs, ContentHeader, Progress } from '@backstage/core-components';
 import { useApi } from '@backstage/core-plugin-api';
-import { makeStyles, Typography } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
-import React from 'react';
+import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
 import useAsync from 'react-use/lib/useAsync';
 import { configAsDataApiRef } from '../../apis';
 import { getRepositorySummaries, populatePackageSummaries } from '../../utils/repositorySummary';
 import { DashboardTabContent } from './components/DashboardTabContent';
 import { RepositoriesTabContent } from './components/RepositoriesTabContent';
 import { Tabs } from '../Controls';
+import { css } from '@emotion/css';
 
-export const useStyles = makeStyles({
-  repositoriesTablesSection: {
+export const useStyles = () => ({
+  repositoriesTablesSection: css({
     '& > *': {
       marginBottom: '24px',
     },
-  },
+  }),
 });
 
 export const PackageManagementPage = () => {

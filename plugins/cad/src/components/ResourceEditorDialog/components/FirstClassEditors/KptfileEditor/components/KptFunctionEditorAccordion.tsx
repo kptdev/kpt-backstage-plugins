@@ -15,10 +15,11 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { Button, TextField } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
-import React, { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import usePrevious from 'react-use/lib/usePrevious';
 import { Function } from '../../../../../../types/Function';
 import { KptfileFunction } from '../../../../../../types/Kptfile';

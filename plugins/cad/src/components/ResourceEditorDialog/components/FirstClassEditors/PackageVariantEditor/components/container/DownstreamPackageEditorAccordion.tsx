@@ -15,9 +15,9 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 import { useApi } from '@backstage/core-plugin-api';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import useAsync from 'react-use/lib/useAsync';
 import { Repository } from '../../../../../../../types/Repository';
 import { emptyIfUndefined } from '../../../../../../../utils/string';

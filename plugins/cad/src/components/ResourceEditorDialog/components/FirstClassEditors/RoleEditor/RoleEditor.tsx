@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import React, { useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import { useEffect, useState } from 'react';
 import { PolicyRule, Role, RoleMetadata } from '../../../../../types/Role';
 import { dumpYaml, loadYaml } from '../../../../../utils/yaml';
 import { ResourceMetadataAccordion } from '../Controls';

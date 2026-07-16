@@ -31,7 +31,7 @@ export const findTextFieldInput = (searchRoot: RenderResult | HTMLElement, path:
   findElement(searchRoot, `[data-testid="TextField_${path}"] input`, `Text field ${path}`);
 
 export const findSelectInput = (searchRoot: RenderResult | HTMLElement, path: string): HTMLDivElement =>
-  findElement(searchRoot, `[data-testid="Select_${path}"] [role="button"]`, `Select ${path}`);
+  findElement(searchRoot, `[data-testid="Select_${path}"] [role="combobox"]`, `Select ${path}`);
 
 export const findSelectLabel = (searchRoot: RenderResult | HTMLElement, path: string): HTMLDivElement =>
   findElement(searchRoot, `[data-testid="Select_${path}"] label`, `Select label ${path}`);

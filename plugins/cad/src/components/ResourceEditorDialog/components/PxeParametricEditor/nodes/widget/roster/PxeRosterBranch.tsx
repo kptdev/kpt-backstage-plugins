@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
 import { isEqual } from 'lodash';
-import React from 'react';
+import { FC, ReactNode, memo } from 'react';
 import { PXE_INPUT_TOP_MARGIN } from '../../../PxeSharedStyles';
 import { PxeRosterItemRail } from './PxeRosterItemRail';
+import { css } from '@emotion/css';
 
 type PxeRosterBranchProps = {
   readonly className?: string;
-  readonly content: React.ReactNode;
-  readonly actions?: React.ReactNode;
+  readonly content: ReactNode;
+  readonly actions?: ReactNode;
   readonly railBarHeight?: number;
   readonly bottomRail?: boolean;
 };
 
-export const PxeRosterBranch: React.FC<PxeRosterBranchProps> = React.memo(
+export const PxeRosterBranch: FC<PxeRosterBranchProps> = memo(
   ({ className, content, actions, railBarHeight, bottomRail, ...otherProps }) => {
     const classes = useStyles();
 
@@ -47,23 +47,23 @@ const CONTENT_TOP_MARGIN = 18;
 const ACTION_RIGHT_POSITION = 48;
 const ACTION_TOP_MARGIN = 7;
 
-const useStyles = makeStyles(() => ({
-  container: {
+const useStyles = () => ({
+  container: css({
     position: 'relative',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  rail: {
+  }),
+  rail: css({
     alignSelf: 'stretch',
-  },
-  itemContent: {
+  }),
+  itemContent: css({
     flex: '1 1 auto',
     marginTop: CONTENT_TOP_MARGIN,
-  },
-  itemActions: {
+  }),
+  itemActions: css({
     position: 'absolute',
     top: CONTENT_TOP_MARGIN + PXE_INPUT_TOP_MARGIN + ACTION_TOP_MARGIN,
     right: -ACTION_RIGHT_POSITION,
-  },
-}));
+  }),
+});

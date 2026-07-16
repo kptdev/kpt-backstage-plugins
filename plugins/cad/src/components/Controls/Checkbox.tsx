@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
-import { Checkbox as MaterialCheckbox, FormControlLabel, FormHelperText, makeStyles } from '@material-ui/core';
-import React, { ChangeEvent } from 'react';
+import MaterialCheckbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormHelperText from '@mui/material/FormHelperText';
+import { ChangeEvent } from 'react';
+import { css } from '@emotion/css';
 
 type CheckboxProps = {
   label: string;
@@ -24,11 +27,11 @@ type CheckboxProps = {
   helperText?: JSX.Element | string;
 };
 
-const useStyles = makeStyles({
-  description: {
+const useStyles = () => ({
+  description: css({
     marginLeft: '32px',
     marginTop: '0',
-  },
+  }),
 });
 
 export const Checkbox = ({ label, checked, onChange, helperText }: CheckboxProps) => {

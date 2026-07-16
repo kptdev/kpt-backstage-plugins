@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { css } from '@emotion/css';
 
-const useStyles = makeStyles({
-  svg: {
+const useStyles = () => ({
+  svg: css({
     width: 'auto',
     height: 28,
-  },
-  path: {
+  }),
+  path: css({
     fill: '#7df3e1',
-  },
+  }),
 });
 
 const LogoIcon = () => {

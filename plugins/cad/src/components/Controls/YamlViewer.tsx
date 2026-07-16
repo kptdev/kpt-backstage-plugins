@@ -16,7 +16,6 @@
 
 import Editor, { DiffEditor, loader } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
-import React from 'react';
 
 type YamlViewerProps = {
   height?: string;

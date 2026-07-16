@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 import { clone } from 'lodash';
-import React, { Fragment, useMemo, useRef } from 'react';
+import { Fragment, useMemo, useRef } from 'react';
 import { PodSecurityContext } from '../../../../../../../types/Pod';
 import { getDeployableResources, PackageResource } from '../../../../../../../utils/packageRevisionResources';
 import { getNumber } from '../../../../../../../utils/string';

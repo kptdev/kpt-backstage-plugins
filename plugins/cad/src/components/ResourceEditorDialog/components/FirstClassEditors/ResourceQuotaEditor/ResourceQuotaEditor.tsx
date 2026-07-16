@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
-import React, { Fragment, useEffect, useState } from 'react';
+import TextField from '@mui/material/TextField';
+import { Fragment, useEffect, useState } from 'react';
 import { ResourceQuota, ResourceQuotaMetadata } from '../../../../../types/ResourceQuota';
 import { dumpYaml, loadYaml } from '../../../../../utils/yaml';
 import { EditorAccordion, ResourceMetadataAccordion } from '../Controls';

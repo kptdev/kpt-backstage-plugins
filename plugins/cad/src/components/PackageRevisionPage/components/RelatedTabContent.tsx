@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import Alert from '@mui/material/Alert';
 import { groupBy } from 'lodash';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { PackageSummary } from '../../../utils/packageSummary';
 import { ContentSummary, PackageContentSummaryOrder } from '../../../utils/repository';
 import { toLowerCase } from '../../../utils/string';
 import { PackagesTable } from '../../PackagesTable';
+import { css } from '@emotion/css';
 
 type RelatedTabContentProps = {
   packageDescriptor: string;
@@ -30,10 +30,10 @@ type RelatedTabContentProps = {
   downstreamPackages: PackageSummary[];
 };
 
-const useStyles = makeStyles({
-  packagesTable: {
+const useStyles = () => ({
+  packagesTable: css({
     marginBottom: '24px',
-  },
+  }),
 });
 
 const getDesciptorPriority = (descriptor: string): number =>

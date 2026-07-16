@@ -14,13 +14,18 @@
  * limitations under the License.
  */
 
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, makeStyles } from '@material-ui/core';
-import React, { Fragment, useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import { Fragment, useEffect, useState } from 'react';
 import { KubernetesResource } from '../../types/KubernetesResource';
 import { getGroupVersionKind } from '../../utils/kubernetesResource';
 import { loadYaml } from '../../utils/yaml';
 import { YamlViewer } from '../Controls';
 import { FirstClassViewerSelector } from './components/FirstClassViewerSelector';
+import { css } from '@emotion/css';
 
 type ResourceViewerProps = {
   open: boolean;
@@ -30,15 +35,15 @@ type ResourceViewerProps = {
   showDiff?: boolean;
 };
 
-const useStyles = makeStyles({
-  container: {
+const useStyles = () => ({
+  container: css({
     width: '640px',
     minHeight: '340px',
     maxHeight: 'calc(80vh - 120px)',
     marginBottom: '10px',
     overflowY: 'scroll',
     whiteSpace: 'pre',
-  },
+  }),
 });
 
 export const ResourceViewerDialog = ({ open, onClose, yaml, originalYaml, showDiff }: ResourceViewerProps) => {

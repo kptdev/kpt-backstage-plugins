@@ -16,25 +16,24 @@
 
 import { LinkButton } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import { makeStyles } from '@material-ui/core';
 import { groupBy } from 'lodash';
-import React from 'react';
 import { registerRepositoryRouteRef } from '../../../routes';
 import { RepositorySummary } from '../../../types/RepositorySummary';
 import { showRegisteredFunctionRepositories } from '../../../utils/featureFlags';
 import { ContentSummary, getPackageDescriptor, PackageContentSummaryOrder } from '../../../utils/repository';
 import { RepositoriesTable } from './RepositoriesTable';
+import { css } from '@emotion/css';
 
 type RepositoriesTabContentProps = {
   summaries: RepositorySummary[];
 };
 
-export const useStyles = makeStyles({
-  repositoriesTablesList: {
+export const useStyles = () => ({
+  repositoriesTablesList: css({
     '& > *': {
       marginBottom: '24px',
     },
-  },
+  }),
 });
 
 const getDescriptor = (summary: RepositorySummary): string => getPackageDescriptor(summary.repository);

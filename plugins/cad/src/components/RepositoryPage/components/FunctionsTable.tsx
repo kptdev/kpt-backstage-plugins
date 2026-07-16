@@ -15,7 +15,6 @@
  */
 
 import { Table, TableColumn } from '@backstage/core-components';
-import React from 'react';
 import { Function } from '../../../types/Function';
 import { formatCreationTimestamp } from '../../../utils/formatDate';
 import { groupFunctionsByName } from '../../../utils/function';

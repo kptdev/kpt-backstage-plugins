@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-import {
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  FormLabel,
-  makeStyles,
-  Radio,
-  RadioGroup as MaterialRadioGroup,
-} from '@material-ui/core';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormLabel from '@mui/material/FormLabel';
+import Radio from '@mui/material/Radio';
+import MaterialRadioGroup from '@mui/material/RadioGroup';
 import { snakeCase } from 'lodash';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
+import { css } from '@emotion/css';
 
 export type RadioOption = {
   label: string;
@@ -40,12 +38,12 @@ type RadioGroupProps = {
   helperText?: string;
 };
 
-const useStyles = makeStyles({
-  optionDescription: {
+const useStyles = () => ({
+  optionDescription: css({
     marginBottom: '14px',
     marginLeft: '32px',
     marginTop: '0',
-  },
+  }),
 });
 
 export const RadioGroup = ({ label, value, options, onChange, helperText }: RadioGroupProps) => {

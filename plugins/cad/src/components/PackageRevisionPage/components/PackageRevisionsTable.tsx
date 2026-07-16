@@ -16,7 +16,6 @@
 
 import { Table, TableColumn } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { packageRouteRef } from '../../../routes';
 import { PackageRevision, PackageRevisionLifecycle } from '../../../types/PackageRevision';
@@ -30,7 +29,7 @@ import {
 } from '../../../utils/packageRevisionResources';
 import { RevisionSummary } from '../../../utils/revisionSummary';
 import { IconButton, PackageIcon } from '../../Controls';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type PackageRevisionsTableProps = {
   repository: Repository;

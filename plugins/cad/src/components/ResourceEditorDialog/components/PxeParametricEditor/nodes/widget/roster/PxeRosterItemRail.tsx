@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core';
-import React from 'react';
+import { FC } from 'react';
 import { PXE_COLOR_RAIL, PXE_RAIL_BAR_HEIGHT_DEFAULT, PXE_RAIL_WIDTH } from '../../../PxeSharedStyles';
+import { css } from '@emotion/css';
 
 type PxeRosterItemRailProps = {
   readonly className?: string;
@@ -9,7 +9,7 @@ type PxeRosterItemRailProps = {
   readonly bottomLeg?: boolean;
 };
 
-export const PxeRosterItemRail: React.FC<PxeRosterItemRailProps> = ({
+export const PxeRosterItemRail: FC<PxeRosterItemRailProps> = ({
   className,
   barHeight = PXE_RAIL_BAR_HEIGHT_DEFAULT,
   topLeg = true,
@@ -38,13 +38,13 @@ const computeRailClipPath = (barHeight: number, bottomLeg: boolean, topLeg: bool
     ')`;
 };
 
-const useStyles = makeStyles(() => ({
-  rail: {
+const useStyles = () => ({
+  rail: css({
     width: PXE_RAIL_WIDTH,
     overflow: 'hidden',
     backgroundColor: PXE_COLOR_RAIL,
 
     // Prevents antialiasing by switching to hardware-accelerated rendering.
     willChange: 'transform',
-  },
-}));
+  }),
+});

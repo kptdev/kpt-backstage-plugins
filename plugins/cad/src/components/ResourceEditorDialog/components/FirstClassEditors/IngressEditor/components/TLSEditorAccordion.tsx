@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-import { Button, TextField } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { clone } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { IngressTLS } from '../../../../../../types/Ingress';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';
 

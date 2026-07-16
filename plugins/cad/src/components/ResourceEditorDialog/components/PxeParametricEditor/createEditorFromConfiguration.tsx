@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { FC } from 'react';
 import { PxeConfiguration } from './types/PxeConfiguration.types';
 import { PxeParametricEditor } from './PxeParametricEditor';
 import { PxeDiagnosticsReporter } from './types/PxeDiagnostics.types';
@@ -25,13 +25,12 @@ export type PxeConfiguredEditorProps = {
 };
 
 export const createEditorFromConfiguration =
-  (configuration: PxeConfiguration, diagnosticsReporter?: PxeDiagnosticsReporter): React.FC<PxeConfiguredEditorProps> =>
-  ({ yamlText, onResourceChange }) =>
-    (
-      <PxeParametricEditor
-        configuration={configuration}
-        yamlText={yamlText}
-        onResourceChange={onResourceChange}
-        __diagnosticsReporter={diagnosticsReporter}
-      />
-    );
+  (configuration: PxeConfiguration, diagnosticsReporter?: PxeDiagnosticsReporter): FC<PxeConfiguredEditorProps> =>
+  ({ yamlText, onResourceChange }) => (
+    <PxeParametricEditor
+      configuration={configuration}
+      yamlText={yamlText}
+      onResourceChange={onResourceChange}
+      __diagnosticsReporter={diagnosticsReporter}
+    />
+  );

@@ -16,12 +16,15 @@
 
 import { Table, TableColumn } from '@backstage/core-components';
 import { errorApiRef, useApi } from '@backstage/core-plugin-api';
-import { Button, Divider, Menu, MenuItem } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import SettingsIcon from '@material-ui/icons/Settings';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { cloneDeep, startCase } from 'lodash';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, MouseEvent, useRef, useState } from 'react';
 import { KubernetesKeyValueObject, KubernetesResource } from '../../../types/KubernetesResource';
 import { PackageResource } from '../../../utils/packageRevisionResources';
 import { dumpYaml } from '../../../utils/yaml';
@@ -77,7 +80,7 @@ export const PackageRevisionResourcesTable = ({
   const selectedDialogResource = useRef<DialogResource>();
   const selectedDialogOriginalResource = useRef<DialogResource>();
 
-  const [addResourceAnchorEl, setAddResourceAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [addResourceAnchorEl, setAddResourceAnchorEl] = useState<null | HTMLElement>(null);
   const addResourceMenuOpen = Boolean(addResourceAnchorEl);
 
   const resources = allResources.filter(resource => resource.component === component);
@@ -293,7 +296,7 @@ export const PackageRevisionResourcesTable = ({
     return newResource;
   };
 
-  const onAddResourceMenuOpenClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const onAddResourceMenuOpenClick = (event: MouseEvent<HTMLButtonElement>): void => {
     setAddResourceAnchorEl(event.currentTarget);
   };
 

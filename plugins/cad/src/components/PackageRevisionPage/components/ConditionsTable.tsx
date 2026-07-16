@@ -15,7 +15,6 @@
  */
 
 import { StatusError, StatusOK, StatusPending, Table, TableColumn } from '@backstage/core-components';
-import React from 'react';
 import { Condition, ConditionStatus } from '../../../types/PackageRevision';
 import { toLowerCase } from '../../../utils/string';
 

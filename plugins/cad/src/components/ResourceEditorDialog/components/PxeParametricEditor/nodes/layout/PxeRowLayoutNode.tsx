@@ -14,42 +14,39 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
 import { isEqual } from 'lodash';
-import React from 'react';
+import { FC, memo } from 'react';
 import { PxeRowLayoutEntry } from '../../types/PxeConfiguration.types';
 import { PxeParametricEditorNode, PxeParametricEditorNodeProps } from '../../PxeParametricEditorNode';
 import { useDiagnostics } from '../../PxeDiagnosticsContext';
 import { PXE_INPUT_WIDTH } from '../../PxeSharedStyles';
+import { css } from '@emotion/css';
 
-export const PxeRowLayoutNode: React.FC<PxeParametricEditorNodeProps> = React.memo(
-  ({ configurationEntry, listPositionInfo }) => {
-    useDiagnostics(configurationEntry);
-    const { entries } = configurationEntry as PxeRowLayoutEntry;
+export const PxeRowLayoutNode: FC<PxeParametricEditorNodeProps> = memo(({ configurationEntry, listPositionInfo }) => {
+  useDiagnostics(configurationEntry);
+  const { entries } = configurationEntry as PxeRowLayoutEntry;
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-      <div className={classes.rowContainer}>
-        {entries.map((entry, index) => (
-          <div className={classes.rowItem} key={`${index}`}>
-            <PxeParametricEditorNode configurationEntry={entry} listPositionInfo={listPositionInfo} />
-          </div>
-        ))}
-      </div>
-    );
-  },
-  isEqual,
-);
+  return (
+    <div className={classes.rowContainer}>
+      {entries.map((entry, index) => (
+        <div className={classes.rowItem} key={`${index}`}>
+          <PxeParametricEditorNode configurationEntry={entry} listPositionInfo={listPositionInfo} />
+        </div>
+      ))}
+    </div>
+  );
+}, isEqual);
 
-const useStyles = makeStyles(() => ({
-  rowContainer: {
+const useStyles = () => ({
+  rowContainer: css({
     display: 'flex',
     flexDirection: 'row',
     gap: '16px',
-  },
-  rowItem: {
+  }),
+  rowItem: css({
     flex: '1 1 0',
     maxWidth: PXE_INPUT_WIDTH,
-  },
-}));
+  }),
+});

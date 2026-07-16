@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { clone } from 'lodash';
 import { useApi } from '@backstage/core-plugin-api';
 import { SelectItem } from '@backstage/core-components';
 import useAsync from 'react-use/lib/useAsync';
-import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { TextField, Button } from '@material-ui/core';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';
 import { useEditorStyles } from '../../styles';
 import { PackageVariantSetRepositories, PackageVariantSetTempleate } from '../../../../../../types/PackageVariantSet';

@@ -15,24 +15,25 @@
  */
 
 import { useApi, useRouteRef } from '@backstage/core-plugin-api';
-import { Button, makeStyles } from '@material-ui/core';
-import React, { Fragment, useState } from 'react';
+import Button from '@mui/material/Button';
+import { Fragment, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { configAsDataApiRef } from '../../../apis';
 import { rootRouteRef } from '../../../routes';
 import { RepositorySummary } from '../../../types/RepositorySummary';
 import { ConfirmationDialog } from '../../Controls';
 import { RepositoryDetails } from './RepositoryDetails';
+import { css } from '@emotion/css';
 
 type AdvancedRepositoryOptionsProps = {
   repositorySummary: RepositorySummary;
 };
 
-const useStyles = makeStyles({
-  repositoryDetails: {
+const useStyles = () => ({
+  repositoryDetails: css({
     maxWidth: '800px',
     marginBottom: '16px',
-  },
+  }),
 });
 
 export const AdvancedRepositoryOptions = ({ repositorySummary }: AdvancedRepositoryOptionsProps) => {

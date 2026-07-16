@@ -67,10 +67,7 @@ export type PackageResourceDiffAdded = {
 };
 
 export type PackageResourceDiff =
-  | PackageResourceDiffAdded
-  | PackageResourceDiffUnchanged
-  | PackageResourceDiffUpdated
-  | PackageResourceDiffRemoved;
+  PackageResourceDiffAdded | PackageResourceDiffUnchanged | PackageResourceDiffUpdated | PackageResourceDiffRemoved;
 
 const normalizeYamlForDiff = (yaml: string): string => {
   const resource: KubernetesResource = loadYaml(yaml);

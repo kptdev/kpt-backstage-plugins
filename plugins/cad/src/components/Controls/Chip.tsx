@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { Chip as MaterialChip, makeStyles } from '@material-ui/core';
-import React from 'react';
+import MaterialChip from '@mui/material/Chip';
+import { css } from '@emotion/css';
 
 type ChipProps = {
   label: string;
@@ -23,14 +23,14 @@ type ChipProps = {
   onClick: () => void;
 };
 
-const useStyles = makeStyles({
-  chip: {
+const useStyles = () => ({
+  chip: css({
     marginBottom: 0,
     transitionDuration: '0s !important',
     '& > span': {
       fontWeight: 'normal',
     },
-  },
+  }),
 });
 
 export const Chip = ({ label, selected, onClick }: ChipProps) => {

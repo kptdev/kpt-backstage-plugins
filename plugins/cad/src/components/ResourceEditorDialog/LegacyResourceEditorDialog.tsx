@@ -14,26 +14,31 @@
  * limitations under the License.
  */
 
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, makeStyles } from '@material-ui/core';
-import React, { useCallback, useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { loadYaml } from '../../utils/yaml';
 import { KubernetesResource } from '../../types/KubernetesResource';
 import { getGroupVersionKind } from '../../utils/kubernetesResource';
 import { FirstClassEditorSelector } from './components/FirstClassEditorSelector';
 import { YamlViewer } from '../Controls';
 import { ResourceEditorDialogProps } from './ResourceEditorDialog';
+import { css } from '@emotion/css';
 
-const useStyles = makeStyles({
-  container: {
+const useStyles = () => ({
+  container: css({
     width: '660px',
     minHeight: 'min(420px, calc(80vh - 120px))',
     maxHeight: 'calc(80vh - 120px)',
     marginBottom: '10px',
     overflowY: 'scroll',
-  },
+  }),
 });
 
-export const LegacyResourceEditorDialog: React.FC<ResourceEditorDialogProps> = ({
+export const LegacyResourceEditorDialog: FC<ResourceEditorDialogProps> = ({
   open,
   onClose,
   yaml,

@@ -14,42 +14,39 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
 import { isEqual } from 'lodash';
-import React from 'react';
+import { FC, memo } from 'react';
 import { PxeConfigurationEntry } from './types/PxeConfiguration.types';
 import { PxeParametricEditorNode } from './PxeParametricEditorNode';
 import { PXE_COLOR_RAIL, PXE_RAIL_WIDTH } from './PxeSharedStyles';
+import { css } from '@emotion/css';
 
 type PxeParametricEditorNodeListProps = {
   readonly entries: readonly PxeConfigurationEntry[];
   readonly isInRosterItem: boolean;
 };
 
-export const PxeParametricEditorNodeList: React.FC<PxeParametricEditorNodeListProps> = React.memo(
-  ({ entries, isInRosterItem }) => {
-    const classes = useNodeListClasses();
-    return (
-      <div className={classes.nodesContainer}>
-        {entries.map((entry, index) => {
-          const isFirstNode = index === 0;
-          const isLastNode = index === entries.length - 1;
-          return [
-            <PxeParametricEditorNode
-              key={`node-${index}`}
-              configurationEntry={entry}
-              listPositionInfo={{ isInRosterItem, isFirstNode, isLastNode }}
-            />,
-            !isLastNode && <NodeSeparatorRail key={`separator-${index}`} isInRosterItem={isInRosterItem} />,
-          ];
-        })}
-      </div>
-    );
-  },
-  isEqual,
-);
+export const PxeParametricEditorNodeList: FC<PxeParametricEditorNodeListProps> = memo(({ entries, isInRosterItem }) => {
+  const classes = useNodeListClasses();
+  return (
+    <div className={classes.nodesContainer}>
+      {entries.map((entry, index) => {
+        const isFirstNode = index === 0;
+        const isLastNode = index === entries.length - 1;
+        return [
+          <PxeParametricEditorNode
+            key={`node-${index}`}
+            configurationEntry={entry}
+            listPositionInfo={{ isInRosterItem, isFirstNode, isLastNode }}
+          />,
+          !isLastNode && <NodeSeparatorRail key={`separator-${index}`} isInRosterItem={isInRosterItem} />,
+        ];
+      })}
+    </div>
+  );
+}, isEqual);
 
-const NodeSeparatorRail: React.FC<{ isInRosterItem: boolean }> = ({ isInRosterItem }) => {
+const NodeSeparatorRail: FC<{ isInRosterItem: boolean }> = ({ isInRosterItem }) => {
   const classes = useNodeSeparatorClasses();
   return (
     <div className={classes.nodeSeparator}>
@@ -58,23 +55,23 @@ const NodeSeparatorRail: React.FC<{ isInRosterItem: boolean }> = ({ isInRosterIt
   );
 };
 
-const useNodeListClasses = makeStyles({
-  nodesContainer: {
+const useNodeListClasses = () => ({
+  nodesContainer: css({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',
-  },
+  }),
 });
 
-const useNodeSeparatorClasses = makeStyles({
-  nodeSeparator: {
+const useNodeSeparatorClasses = () => ({
+  nodeSeparator: css({
     height: '18px',
     overflow: 'visible',
-  },
-  nodeSeparatorRail: {
+  }),
+  nodeSeparatorRail: css({
     height: '32px',
     width: '1px',
     marginLeft: PXE_RAIL_WIDTH / 2,
     backgroundColor: PXE_COLOR_RAIL,
-  },
+  }),
 });

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 import { clone } from 'lodash';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { KubernetesKeyValueObject } from '../../../../../../../types/KubernetesResource';
 import { PackageVariantPackageContext } from '../../../../../../../types/PackageVariant';
 import { KeyValueEditorAccordion } from '../../../Controls';

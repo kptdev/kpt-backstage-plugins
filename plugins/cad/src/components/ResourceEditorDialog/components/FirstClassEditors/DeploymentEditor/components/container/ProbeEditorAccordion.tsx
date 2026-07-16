@@ -15,9 +15,9 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { TextField } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 import { clone } from 'lodash';
-import React, { Fragment, useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { Probe } from '../../../../../../../types/Pod';
 import { buildSelectItemsFromList } from '../../../../../../../utils/selectItem';
 import { getNumber, getNumberOrString } from '../../../../../../../utils/string';

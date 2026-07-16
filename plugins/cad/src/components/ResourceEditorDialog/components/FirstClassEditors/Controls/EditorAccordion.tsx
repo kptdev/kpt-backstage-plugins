@@ -14,9 +14,14 @@
  * limitations under the License.
  */
 
-import { Accordion, AccordionDetails, AccordionSummary, makeStyles, Typography } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import React, { ChangeEvent, Dispatch, ReactNode, SetStateAction, useEffect, useMemo, useRef } from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ChangeEvent, Dispatch, ReactNode, SetStateAction, useEffect, useMemo, useRef } from 'react';
+import { css } from '@emotion/css';
+import { useTheme } from '@mui/material/styles';
 
 export type AccordionState = [string | undefined, Dispatch<SetStateAction<string | undefined>>];
 
@@ -28,24 +33,27 @@ type EditorAccordionProps = {
   children: ReactNode;
 };
 
-const useStyles = makeStyles(theme => ({
-  title: {
-    fontSize: theme.typography.pxToRem(15),
-    width: '30%',
-    flexShrink: 0,
-  },
-  description: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-  accordionDetails: {
-    display: 'block',
-    width: '100%',
-    '& > *:not(:last-child)': {
-      marginBottom: '12px',
-    },
-  },
-}));
+const useStyles = () => {
+  const theme = useTheme();
+  return {
+    title: css({
+      fontSize: theme.typography.pxToRem(15),
+      width: '30%',
+      flexShrink: 0,
+    }),
+    description: css({
+      fontSize: theme.typography.pxToRem(15),
+      color: theme.palette.text.secondary,
+    }),
+    accordionDetails: css({
+      display: 'block',
+      width: '100%',
+      '& > *:not(:last-child)': {
+        marginBottom: '12px',
+      },
+    }),
+  };
+};
 
 export const EditorAccordion = ({ id, title, description, state, children, ...otherProps }: EditorAccordionProps) => {
   const classes = useStyles();

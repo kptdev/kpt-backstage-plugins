@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import { FormControl, InputLabel, makeStyles, MenuItem, Select } from '@material-ui/core';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import { nanoid } from 'nanoid';
-import React, { useContext, useRef } from 'react';
+import { FC, useContext, useRef } from 'react';
 import { PxeSelectValueWidgetEntry } from '../../types/PxeConfiguration.types';
 import { withCurrentValues } from '../../utils/rendering/withCurrentValues';
 import { generateValueLabel } from '../../utils/generateLabelsForWidgets';
@@ -24,6 +27,7 @@ import { PxeValue } from '../../types/PxeParametricEditor.types';
 import { PxeParametricEditorNodeProps } from '../../PxeParametricEditorNode';
 import { useDiagnostics } from '../../PxeDiagnosticsContext';
 import { PxeResourceChangeRequestContext } from '../../PxeResourceChangeRequestContext';
+import { css } from '@emotion/css';
 import {
   PXE_COLOR_BACKGROUND_WHITE,
   PXE_COLOR_BORDER_DEFAULT,
@@ -33,7 +37,7 @@ import {
 
 const DEFAULT_VALUE = '__DEFAULT_VALUE__';
 
-export const PxeSelectValueWidgetNode: React.FC<PxeParametricEditorNodeProps> = withCurrentValues(
+export const PxeSelectValueWidgetNode: FC<PxeParametricEditorNodeProps> = withCurrentValues(
   ({ configurationEntry, currentValues: [currentValue] }) => {
     useDiagnostics(configurationEntry);
 
@@ -77,8 +81,8 @@ export const PxeSelectValueWidgetNode: React.FC<PxeParametricEditorNodeProps> = 
   },
 );
 
-const useStyles = makeStyles({
-  select: {
+const useStyles = () => ({
+  select: css({
     width: '100%',
     maxWidth: PXE_INPUT_WIDTH,
     marginTop: PXE_INPUT_TOP_MARGIN,
@@ -89,5 +93,5 @@ const useStyles = makeStyles({
     '& fieldset': {
       borderColor: PXE_COLOR_BORDER_DEFAULT,
     },
-  },
+  }),
 });

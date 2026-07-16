@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-import { Badge as MaterialBadge, makeStyles } from '@material-ui/core';
-import React, { ReactNode } from 'react';
+import MaterialBadge from '@mui/material/Badge';
+import { ReactNode } from 'react';
+import { css } from '@emotion/css';
 
 type BadgeProps = {
   badgeContent: number;
   children: ReactNode;
 };
 
-const useStyles = makeStyles({
-  badge: {
+const useStyles = () => ({
+  badge: css({
     paddingLeft: '2px',
     paddingRight: '2px',
-  },
+  }),
 });
 
 export const Badge = ({ badgeContent, children }: BadgeProps) => {

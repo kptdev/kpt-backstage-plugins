@@ -14,29 +14,37 @@
  * limitations under the License.
  */
 
-import { makeStyles, Tab, Tabs } from '@material-ui/core';
-import React from 'react';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import { FC, SyntheticEvent, useState } from 'react';
 import { PxeConfigurationTab } from './types/PxeConfiguration.types';
 import { PxeParametricEditorNodeList } from './PxeParametricEditorNodeList';
 import { PXE_COLOR_ACCENT, PXE_COLOR_RAIL } from './PxeSharedStyles';
+import { css } from '@emotion/css';
+import { useTheme } from '@mui/material/styles';
 
 type PxeParametricEditorTabsProps = {
   readonly tabs: readonly PxeConfigurationTab[];
 };
 
-export const PxeParametricEditorTabs: React.FC<PxeParametricEditorTabsProps> = ({ tabs }) => {
-  const [value, setValue] = React.useState(0);
+export const PxeParametricEditorTabs: FC<PxeParametricEditorTabsProps> = ({ tabs }) => {
+  const [value, setValue] = useState(0);
 
-  const handleChange = (_event: React.ChangeEvent<{}>, newValue: number) => {
+  const handleChange = (_event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   const classes = useStyles();
   return (
     <div>
-      <Tabs classes={{ root: classes.tabs, indicator: classes.indicator }} value={value} onChange={handleChange}>
+      <Tabs
+        className={classes.tabs}
+        value={value}
+        onChange={handleChange}
+        TabIndicatorProps={{ className: classes.indicator }}
+      >
         {tabs.map(({ name }, index) => (
-          <Tab classes={{ root: classes.tab, selected: classes.tabSelected }} key={index} label={name} />
+          <Tab className={`${classes.tab} ${value === index ? classes.tabSelected : ''}`} key={index} label={name} />
         ))}
       </Tabs>
       {tabs.map(({ entries }, index) => (
@@ -48,23 +56,24 @@ export const PxeParametricEditorTabs: React.FC<PxeParametricEditorTabsProps> = (
   );
 };
 
-const useStyles = makeStyles(theme => {
+const useStyles = () => {
+  const theme = useTheme();
   return {
-    tabs: {
+    tabs: css({
       marginBottom: '24px',
-    },
-    indicator: {
+    }),
+    indicator: css({
       backgroundColor: PXE_COLOR_ACCENT,
-    },
-    tab: {
+    }),
+    tab: css({
       borderBottom: `solid 1px ${PXE_COLOR_RAIL}`,
       fontWeight: 600,
       letterSpacing: '0.5px',
       color: theme.palette.text.primary,
       opacity: 1,
-    },
-    tabSelected: {
+    }),
+    tabSelected: css({
       color: PXE_COLOR_ACCENT,
-    },
+    }),
   };
-});
+};

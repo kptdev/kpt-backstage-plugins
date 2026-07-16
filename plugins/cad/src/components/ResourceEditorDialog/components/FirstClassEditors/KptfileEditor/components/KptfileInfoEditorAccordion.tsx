@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import { TextField } from '@material-ui/core';
-import React, { Fragment, useRef } from 'react';
+import TextField from '@mui/material/TextField';
+import { Fragment, useRef } from 'react';
 import { KptfileInfo } from '../../../../../../types/Kptfile';
 import { emptyIfUndefined } from '../../../../../../utils/string';
 import { EditorAccordion } from '../../Controls';

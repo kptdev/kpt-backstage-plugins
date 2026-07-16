@@ -15,7 +15,7 @@
  */
 
 import { pick } from 'lodash';
-import React, { useCallback, useRef, useState } from 'react';
+import { FC, useCallback, useRef, useState } from 'react';
 import { PxeConfiguration } from './types/PxeConfiguration.types';
 import { PxeResourceChangeRequestHandler } from './types/PxeParametricEditor.types';
 import { PxeDiagnosticsReporter } from './types/PxeDiagnostics.types';
@@ -33,7 +33,7 @@ export type PxeParametricEditorProps = {
   readonly __diagnosticsReporter?: PxeDiagnosticsReporter;
 };
 
-export const PxeParametricEditor: React.FC<PxeParametricEditorProps> = ({
+export const PxeParametricEditor: FC<PxeParametricEditorProps> = ({
   configuration: { topLevelProperties, tabs },
   yamlText,
   onResourceChange: handleResourceChange,

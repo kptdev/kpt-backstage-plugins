@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import React, { Fragment, useRef, useState } from 'react';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import { Fragment, useRef, useState } from 'react';
 import { Volume, VolumeMount } from '../../../../../../../types/Pod';
 import { AccordionState, EditorAccordion } from '../../../Controls/EditorAccordion';
 import { useEditorStyles } from '../../../styles';

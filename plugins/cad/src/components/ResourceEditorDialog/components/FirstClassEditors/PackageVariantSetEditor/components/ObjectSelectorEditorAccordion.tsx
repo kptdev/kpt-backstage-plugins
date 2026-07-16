@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { clone } from 'lodash';
-import DeleteIcon from '@material-ui/icons/Delete';
-import { TextField, Button } from '@material-ui/core';
+import DeleteIcon from '@mui/icons-material/Delete';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import { AccordionState, EditorAccordion } from '../../Controls/EditorAccordion';
 import { PackageVariantSetObjectSelector, PackageVariantSetTempleate } from '../../../../../../types/PackageVariantSet';
 import { KeyValueEditorAccordion } from '../../Controls';

@@ -16,7 +16,6 @@
 
 import { Table, TableColumn } from '@backstage/core-components';
 import { useRouteRef } from '@backstage/core-plugin-api';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { repositoryRouteRef } from '../../../routes';
 import { PackageRevisionLifecycle } from '../../../types/PackageRevision';

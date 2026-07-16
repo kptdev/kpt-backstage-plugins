@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
+import { css } from '@emotion/css';
 
-export const useEditorStyles = makeStyles({
-  root: {
+export const useEditorStyles = () => ({
+  root: css({
     margin: '2px',
-  },
-  multiControlRow: {
+  }),
+  multiControlRow: css({
     display: 'flex',
     alignItems: 'center',
     '& > *:not(:last-child)': {
       marginRight: '8px',
     },
-  },
-  buttonRow: {
+  }),
+  buttonRow: css({
     marginTop: '12px',
     '& > button': {
       marginRight: '8px',
     },
-  },
-  iconButton: {
+  }),
+  iconButton: css({
     height: '42px',
     width: '42px',
-  },
+  }),
 });

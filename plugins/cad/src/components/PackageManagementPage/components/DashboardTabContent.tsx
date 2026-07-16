@@ -14,25 +14,24 @@
  * limitations under the License.
  */
 
-import { makeStyles } from '@material-ui/core';
 import { flatten, groupBy } from 'lodash';
-import React from 'react';
 import { RepositorySummary } from '../../../types/RepositorySummary';
 import { getPackageDescriptor, PackageContentSummaryOrder } from '../../../utils/repository';
 import { ContentInfoCard } from './ContentInfoCard';
+import { css } from '@emotion/css';
 
 type DashboardTabContentProps = {
   summaries: RepositorySummary[];
 };
 
-export const useStyles = makeStyles({
-  summaryList: {
+export const useStyles = () => ({
+  summaryList: css({
     '& > *:not(:first-child)': {
       marginTop: '40px',
     },
-  },
+  }),
 
-  cards: {
+  cards: css({
     display: 'flex',
     flexFlow: 'wrap',
     '& > *': {
@@ -41,7 +40,7 @@ export const useStyles = makeStyles({
       flex: 1,
       margin: '0 16px 16px 0',
     },
-  },
+  }),
 });
 
 const getDescriptor = (summary: RepositorySummary): string => getPackageDescriptor(summary.repository);

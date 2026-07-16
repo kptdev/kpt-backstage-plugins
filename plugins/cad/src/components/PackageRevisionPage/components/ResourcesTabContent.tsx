@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-import { Card, CardContent, makeStyles, TextField } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
-import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
+import Alert from '@mui/material/Alert';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { PackageRevisionLifecycle } from '../../../types/PackageRevision';
 import { PackageRevisionResourcesMap } from '../../../types/PackageRevisionResource';
 import { getPackageRevision, getPackageRevisionTitle } from '../../../utils/packageRevision';
@@ -24,6 +26,7 @@ import { RevisionSummary } from '../../../utils/revisionSummary';
 import { Select } from '../../Controls';
 import { PackageRevisionPageMode } from '../PackageRevisionPage';
 import { PackageResourceFilter, PackageResourcesList } from './PackageResourcesList';
+import { css } from '@emotion/css';
 
 export type AlertMessage = {
   key: string;
@@ -52,16 +55,16 @@ type ResourceFilterSelectItem = {
   filter?: PackageResourceFilter;
 };
 
-const useStyles = makeStyles({
-  root: {
+const useStyles = () => ({
+  root: css({
     '& > *:not(:last-child)': {
       marginBottom: '16px',
     },
-  },
-  resourceViewOptions: {
+  }),
+  resourceViewOptions: css({
     display: 'flex',
     gap: '16px',
-  },
+  }),
 });
 
 const HIDE_COMPARISON_SELECT_ITEM: DiffSelectItem = {

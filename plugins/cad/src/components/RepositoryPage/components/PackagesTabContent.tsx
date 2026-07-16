@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-import { Card, CardContent, makeStyles } from '@material-ui/core';
-import Alert from '@material-ui/lab/Alert';
-import React, { Fragment, useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Alert from '@mui/material/Alert';
+import { Fragment, useState } from 'react';
 import { Function } from '../../../types/Function';
 import { Repository, RepositoryContent } from '../../../types/Repository';
 import { isConfigSyncEnabled } from '../../../utils/featureFlags';
@@ -26,6 +27,7 @@ import { toLowerCase } from '../../../utils/string';
 import { Chip } from '../../Controls';
 import { PackagesTable } from '../../PackagesTable';
 import { FunctionsTable } from '../components/FunctionsTable';
+import { css } from '@emotion/css';
 
 type PackagesTabContentProps = {
   packageDescriptor: string;
@@ -44,12 +46,12 @@ enum Display {
   DRAFT = 'draft',
 }
 
-const useStyles = makeStyles({
-  root: {
+const useStyles = () => ({
+  root: css({
     '& > *:not(:last-child)': {
       marginBottom: '16px',
     },
-  },
+  }),
 });
 
 const getDisplapyPackages = (packages: PackageSummary[], display: string): PackageSummary[] => {

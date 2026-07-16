@@ -15,8 +15,12 @@
  */
 
 import { SelectItem } from '@backstage/core-components';
-import { FormControl, FormHelperText, InputLabel, MenuItem, Select as MaterialSelect } from '@material-ui/core';
-import React, { ChangeEvent } from 'react';
+import FormControl from '@mui/material/FormControl';
+import FormHelperText from '@mui/material/FormHelperText';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import MaterialSelect from '@mui/material/Select';
+import type { SelectChangeEvent } from '@mui/material/Select';
 
 type SelectProps = {
   label: string;
@@ -28,8 +32,8 @@ type SelectProps = {
 };
 
 export const Select = ({ label, selected, items, onChange, className, helperText, ...otherProps }: SelectProps) => {
-  const handleChange = (event: ChangeEvent<{ name?: string | undefined; value: unknown }>): void => {
-    onChange(event.target.value as string);
+  const handleChange = (event: SelectChangeEvent<string>): void => {
+    onChange(event.target.value);
   };
 
   return (

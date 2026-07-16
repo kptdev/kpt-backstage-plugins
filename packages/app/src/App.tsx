@@ -15,7 +15,6 @@
  */
 
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
-import React from 'react';
 import { Navigate, Route } from 'react-router';
 import { apis } from './apis';
 import { Root } from './components/Root';

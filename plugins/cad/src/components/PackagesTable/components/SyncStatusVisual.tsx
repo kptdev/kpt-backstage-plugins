@@ -15,7 +15,7 @@
  */
 
 import { StatusError, StatusOK, StatusPending, StatusWarning } from '@backstage/core-components';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { SyncStatus, SyncStatusState } from '../../../utils/configSync';
 
 type SyncStatusVisualProps = {

@@ -15,7 +15,7 @@
  */
 
 import { cloneDeep } from 'lodash';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Probe } from '../../../../../../../types/Pod';
 import { Checkbox } from '../../../../../../Controls';
 import { AccordionState, EditorAccordion } from '../../../Controls/EditorAccordion';

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import React, { useEffect, useMemo, useState } from 'react';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import { useEffect, useMemo, useState } from 'react';
 import { Ingress, IngressBackend, IngressMetadata, IngressRule, IngressTLS } from '../../../../../types/Ingress';
 import { PackageResource } from '../../../../../utils/packageRevisionResources';
 import { dumpYaml, loadYaml } from '../../../../../utils/yaml';
